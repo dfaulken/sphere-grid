@@ -18,7 +18,7 @@ class Character < ActiveRecord::Base
   private
 
   def base_attributes_correct?
-    unless base_attributes.keys.sort == ATTRIBUTE_NAMES.sort
+    unless base_attributes.keys == ATTRIBUTE_NAMES
       errors.add :base_attributes, 'has incorrect keys'
     end
     unless base_attributes.values.all?{|v| v.is_a? Fixnum }
