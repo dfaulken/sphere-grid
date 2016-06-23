@@ -9,6 +9,7 @@ gem 'jquery-ui-rails'
 gem 'mysql2'
 gem 'paper_trail'
 gem 'rails'
+gem 'raphael-rails'
 gem 'sass-rails'
 gem 'underscore-rails'
 

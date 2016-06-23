@@ -1,0 +1,14 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+body{
+  background: black;
+  #sphere-grid.container{
+    background: grey;
+    margin: 0 auto;
+    width: 1732px;
+    height: 2054px;
+  }
+}

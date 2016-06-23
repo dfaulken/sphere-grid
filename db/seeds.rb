@@ -35,6 +35,14 @@ Character.create! name: 'Rikku', color: 'green', base_attributes: {
   'Agility' => 16, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
 }
 
+def node(n)
+  Node.find(n)
+end
+
 Node.create! x: 862, y: 914
-cheer_node = Node.create! x: 862, y: 818
-Ability.create! name: 'Cheer', node: cheer_node
+Node.create! x: 862, y: 818, connections: [[node(1).x, node(1).y]]
+Ability.create! name: 'Cheer', node: node(2)
+Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [[node(2).x, node(2).y]]
+Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [[node(3).x, node(3).y]]
+Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [[node(4).x, node(4).y]]
+Node.create! x: 860, y: 776, attribute_name: 'Accuracy', value: 1, connections: [[node(5).x, node(5).y]]
