@@ -39,11 +39,17 @@ $(document).ready(function(){
     if(node.attribute_name){
       circle.attr({fill: ATTRIBUTE_COLORS[node.attribute_name]});
       CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
-      CANVAS.text(node.x, node.y + 4, node.value).attr('font-size', 12);
+      var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
+      CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
     }
     else if(node.ability){
       circle.attr({fill: 'pink', title: node.ability.name});
       CANVAS.text(node.x, node.y, 'A').attr({fill: 'grey', 'font-size': 14});
+    }
+    else if(node.lock_level){
+      circle.attr({fill: 'black'});
+      CANVAS.text(node.x, node.y - 5, 'LV.').attr({fill: 'red', 'font-size': 8});
+      CANVAS.text(node.x, node.y + 5, node.lock_level).attr({fill: 'red', 'font-size': 12});
     }
     else circle.attr({fill: 'grey'});
   }

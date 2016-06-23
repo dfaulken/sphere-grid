@@ -36,22 +36,35 @@ Character.create! name: 'Rikku', color: 'green', base_attributes: {
 }
 
 def node(n)
-  Node.find(n)
+  [Node.find(n).x, Node.find(n).y]
 end
 
 Node.create! x: 862, y: 914
-Node.create! x: 862, y: 818, connections: [[node(1).x, node(1).y]]
-Ability.create! name: 'Cheer', node: node(2)
-Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [[node(2).x, node(2).y]]
-Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [[node(3).x, node(3).y]]
-Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [[node(4).x, node(4).y]]
-Node.create! x: 862, y: 776, attribute_name: 'Accuracy', value: 1, connections: [[node(5).x, node(5).y]]
-Node.create! x: 862, y: 728, connections: [[node(6).x, node(6).y]]
-Ability.create! name: 'Flee', node: node(7)
-Node.create! x: 818, y: 776, connections: [[node(7).x, node(7).y]]
-Node.create! x: 776, y: 776, connections: [[node(8).x, node(8).y]]
-Node.create! x: 796, y: 798, connections: [[node(9).x, node(9).y]]
-Ability.create! name: 'Extract Power', node: node(10)
-Node.create! x: 818, y: 818, connections: [[node(10).x, node(10).y]]
-Node.create! x: 776, y: 818, connections: [[node(11).x, node(11).y]]
-Node.create! x: 862, y: 690, attribute_name: 'Strength', value: 1, connections: [[node(7).x, node(7).y]]
+Node.create! x: 862, y: 818, connections: [node(1)]
+Ability.create! name: 'Cheer', node: Node.find(2)
+Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [node(2)]
+Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [node(3)]
+Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [node(4)]
+Node.create! x: 862, y: 776, attribute_name: 'Accuracy', value: 1, connections: [node(5)]
+Node.create! x: 862, y: 728, connections: [node(6)]
+Ability.create! name: 'Flee', node: Node.find(7)
+Node.create! x: 818, y: 776, connections: [node(7)]
+Node.create! x: 776, y: 776, connections: [node(8)]
+Node.create! x: 796, y: 798, connections: [node(9)]
+Ability.create! name: 'Extract Power', node: Node.find(10)
+Node.create! x: 818, y: 818, connections: [node(10)]
+Node.create! x: 776, y: 818, connections: [node(11)]
+Node.create! x: 862, y: 690, attribute_name: 'Strength', value: 1, connections: [node(7)]
+Node.create! x: 862, y: 655, attribute_name: 'Evasion', value: 2, connections: [node(13)]
+Node.create! x: 862, y: 620, connections: [node(14)]
+Ability.create! name: 'Haste', node: Node.find(15)
+Node.create! x: 862, y: 582, attribute_name: 'Strength', value: 1, connections: [node(15)]
+Node.create! x: 898, y: 620, connections: [node(16)]
+Ability.create! name: 'Extract Speed', node: Node.find(17)
+Node.create! x: 888, y: 646, attribute_name: 'Magic Defense', value: 3, connections: [node(17)]
+Node.create! x: 914, y: 672, attribute_name: 'Magic', value: 3, connections: [node(18)]
+Node.create! x: 808, y: 672, attribute_name: 'MP', value: 20, connections: [node(16)]
+Node.create! x: 784, y: 696, attribute_name: 'HP', value: 200, connections: [node(20)]
+Node.create! x: 704, y: 768, connections: [node(21)]
+Node.create! x: 652, y: 746, connections: [node(22)]
+Node.create! x: 652, y: 716, lock_level: 1, connections: [node(23)]
