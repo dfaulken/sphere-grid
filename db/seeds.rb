@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+tidus = Character.create! name: 'Tidus', color: 'blue', base_attributes: {
+  'HP' => 520, 'MP' => 12,
+  'Strength' => 15, 'Defense' => 5, 'Magic' => 5, 'Magic Defense' => 5,
+  'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
+}
+cheer_node = Node.create!
+cheer = Ability.create! name: 'Cheer', node: cheer_node
+tidus.nodes << cheer_node
+
+defense_node = Node.create! attribute_name: 'Defense', value: 2
