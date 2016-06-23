@@ -8,3 +8,4 @@ cheer = Ability.create! name: 'Cheer', node: cheer_node
 tidus.nodes << cheer_node
 
 defense_node = Node.create! attribute_name: 'Defense', value: 2
+tidus.nodes << cheer_node

@@ -7,6 +7,7 @@ class Character < ActiveRecord::Base
   serialize :base_attributes, Hash
   validate :base_attributes_correct?
   has_and_belongs_to_many :nodes
+  has_many :abilities, through: :nodes
 
   ATTRIBUTE_NAMES.each do |attribute|
     define_method attribute.parameterize.underscore do
