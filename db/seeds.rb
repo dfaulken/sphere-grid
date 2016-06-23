@@ -54,3 +54,4 @@ Node.create! x: 796, y: 798, connections: [[node(9).x, node(9).y]]
 Ability.create! name: 'Extract Power', node: node(10)
 Node.create! x: 818, y: 818, connections: [[node(10).x, node(10).y]]
 Node.create! x: 776, y: 818, connections: [[node(11).x, node(11).y]]
+Node.create! x: 862, y: 690, attribute_name: 'Strength', value: 1, connections: [[node(7).x, node(7).y]]
