@@ -3,6 +3,6 @@ class SphereGridController < ApplicationController
   end
 
   def node_data
-    render json: Node.all
+    render json: Node.all, include: :ability
   end
 end

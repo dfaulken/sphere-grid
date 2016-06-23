@@ -45,4 +45,12 @@ Ability.create! name: 'Cheer', node: node(2)
 Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [[node(2).x, node(2).y]]
 Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [[node(3).x, node(3).y]]
 Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [[node(4).x, node(4).y]]
-Node.create! x: 860, y: 776, attribute_name: 'Accuracy', value: 1, connections: [[node(5).x, node(5).y]]
+Node.create! x: 862, y: 776, attribute_name: 'Accuracy', value: 1, connections: [[node(5).x, node(5).y]]
+Node.create! x: 862, y: 728, connections: [[node(6).x, node(6).y]]
+Ability.create! name: 'Flee', node: node(7)
+Node.create! x: 818, y: 776, connections: [[node(7).x, node(7).y]]
+Node.create! x: 776, y: 776, connections: [[node(8).x, node(8).y]]
+Node.create! x: 796, y: 798, connections: [[node(9).x, node(9).y]]
+Ability.create! name: 'Extract Power', node: node(10)
+Node.create! x: 818, y: 818, connections: [[node(10).x, node(10).y]]
+Node.create! x: 776, y: 818, connections: [[node(11).x, node(11).y]]
