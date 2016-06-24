@@ -40,6 +40,7 @@ $(document).ready(function(){
     else if(node.ability) drawAbilityNode(circle, node);
     else if(node.lock_level) drawLockNode(circle, node);
     else circle.attr({fill: 'grey'}); // empty node
+    drawNodeId(node);
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
@@ -68,5 +69,9 @@ $(document).ready(function(){
     circle.attr({fill: 'black'});
     CANVAS.text(node.x, node.y - 5, 'LV.').attr({fill: 'red', 'font-size': 8});
     CANVAS.text(node.x, node.y + 5, node.lock_level).attr({fill: 'red', 'font-size': 12});
+  }
+
+  function drawNodeId(node){
+    CANVAS.text(node.x + 13, node.y - 13, node.id).attr({fill: 'grey', 'font-size': 6});
   }
 });

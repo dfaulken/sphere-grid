@@ -15,6 +15,12 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def stats
+    ATTRIBUTE_NAMES.map do |name|
+      [name, send(name.parameterize.underscore)]
+    end.to_h
+  end
+
   private
 
   def base_attributes_correct?
