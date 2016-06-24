@@ -5,7 +5,7 @@ ATTRIBUTE_ABBREVIATIONS = {
   'Defense':       'DEF',
   'Magic':         'MAG',
   'Magic Defense': 'MDEF',
-  'Agility':       'AGI',
+  'Agility':       'AGL',
   'Luck':          'LUCK',
   'Evasion':       'EVA',
   'Accuracy':      'ACC'
