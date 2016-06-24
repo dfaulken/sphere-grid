@@ -4,7 +4,7 @@ ATTRIBUTE_ABBREVIATIONS = {
   'Strength':      'STR',
   'Defense':       'DEF',
   'Magic':         'MAG',
-  'Magic Defense': 'MDEF',
+  'Magic Defense': 'MDef',
   'Agility':       'AGL',
   'Luck':          'LUCK',
   'Evasion':       'EVA',
@@ -44,7 +44,12 @@ $(document).ready(function(){
     }
     else if(node.ability){
       circle.attr({fill: 'pink', title: node.ability.name});
-      CANVAS.text(node.x, node.y, 'A').attr({fill: 'grey', 'font-size': 14});
+      if(_.contains(node.ability.name, ' ')){
+        var abilityWords = node.ability.name.split(' ');
+        CANVAS.text(node.x, node.y - 4, abilityWords[0]).attr('font-size', 6);
+        CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
+      }
+      else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 8);
     }
     else if(node.lock_level){
       circle.attr({fill: 'black'});
