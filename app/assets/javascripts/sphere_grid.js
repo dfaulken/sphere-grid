@@ -26,10 +26,14 @@ ATTRIBUTE_COLORS = {
 
 $(document).ready(function(){
   CANVAS = Raphael('sphere-grid', '100%', '100%');
+  initializeSphereGrid();
 
-  $.get('/node_data', function(nodes){
-    _.each(nodes, drawNode);
-  });
+  function initializeSphereGrid(){
+    $.get('/node_data', function(nodes){
+      CANVAS.clear();
+      _.each(nodes, drawNode);
+    });
+  }
 
   function drawNode(node){
     var circle = CANVAS.circle(node.x, node.y, 13);
