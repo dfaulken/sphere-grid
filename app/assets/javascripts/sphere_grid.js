@@ -6,18 +6,18 @@ ATTRIBUTE_ABBREVIATIONS = {
   'Magic':         'MAG',
   'Magic Defense': 'MDef',
   'Agility':       'AGL',
-  'Luck':          'LUCK',
+  'Luck':          'Luck',
   'Evasion':       'EVA',
   'Accuracy':      'ACC'
 }
 
 ATTRIBUTE_COLORS = {
-  'HP':            'green',
+  'HP':            'lightgreen',
   'MP':            'green',
   'Strength':      'red',
   'Defense':       'blue',
   'Magic':         'purple',
-  'Magic Defense': 'purple',
+  'Magic Defense': 'lightblue',
   'Agility':       'yellow',
   'Luck':          'gold',
   'Evasion':       'white',
