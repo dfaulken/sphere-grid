@@ -286,7 +286,7 @@ Node.create! x: 1350, y: 1226, attribute_name: 'Magic Defense', value: 3, connec
 Node.create! x: 1294, y: 1226, connections: [node(218)]
 Node.create! x: 1286, y: 1254, connections: [node(219)]
 Node.create! x: 1294, y: 1280, attribute_name: 'Magic', value: 4, connections: [node(220)]
-Node.create! x: 1320, y: 1290, connections: [node(221)]
+Node.create! x: 1324, y: 1290, connections: [node(221)]
 Node.create! x: 1358, y: 1254, connections: [node(222)]
 Node.create! x: 1324, y: 1254, connections: [node(223)]
 Ability.create! name: 'Cura', node: Node.find(224)
