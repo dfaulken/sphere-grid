@@ -13,13 +13,13 @@ ATTRIBUTE_ABBREVIATIONS = {
 
 ATTRIBUTE_COLORS = {
   'HP':            'lightgreen',
-  'MP':            'green',
+  'MP':            'forestgreen',
   'Strength':      'red',
-  'Defense':       'blue',
-  'Magic':         'purple',
+  'Defense':       'royalblue',
+  'Magic':         'violet',
   'Magic Defense': 'lightblue',
   'Agility':       'yellow',
-  'Luck':          'gold',
+  'Luck':          'goldenrod',
   'Evasion':       'white',
   'Accuracy':      'orange'
 }
@@ -43,7 +43,7 @@ $(document).ready(function(){
     if(node.attribute_name) drawStatNode(circle, node);
     else if(node.ability) drawAbilityNode(circle, node);
     else if(node.lock_level) drawLockNode(circle, node);
-    else circle.attr({fill: 'grey'}); // empty node
+    else circle.attr({fill: 'silver'}); // empty node
     drawNodeId(node);
   }
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
   }
 
   function drawAbilityNode(circle, node){
-    circle.attr({fill: 'pink', title: node.ability.name});
+    circle.attr({fill: 'palevioletred', title: node.ability.name});
     if(_.contains(node.ability.name, ' ')){
       var abilityWords = node.ability.name.split(' ');
       CANVAS.text(node.x, node.y - 4, abilityWords[0]).attr('font-size', 6);

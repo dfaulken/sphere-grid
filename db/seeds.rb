@@ -595,7 +595,31 @@ Node.create! x: 1314, y: 250, attribute_name: 'Magic Defense', value: 4, connect
 Node.create! x: 1278, y: 214, attribute_name: 'Magic', value: 4, connections: [node(507)]
 Node.create! x: 1242, y: 250, attribute_name: 'MP', value: 40, connections: [node(508)]
 Node.create! x: 1278, y: 250, connections: [node(509)]
-Ability.create! name: 'Doublecast', node: Node.find(510)
+Ability.create! name: 'Double- cast', node: Node.find(510)
 Node.create! x: 1226, y: 302, connections: [node(510)]
 Node.create! x: 1202, y: 326, connections: [node(511)]
 Node.create! x: 1116, y: 326, lock_level: 3, connections: [node(512)]
+Node.create! x: 1060, y: 270, attribute_name: 'Strength', value: 1, connections: [node(513)]
+Node.create! x: 1092, y: 192, lock_level: 4, connections: [node(514)]
+Node.create! x: 1060, y: 116, attribute_name: 'Strength', value: 1, connections: [node(515)]
+Node.create! x: 984, y: 84, connections: [node(516)]
+Ability.create! name: 'Holy', node: Node.find(517)
+Node.create! x: 908, y: 116, attribute_name: 'Defense', value: 1, connections: [node(517)]
+Node.create! x: 876, y: 192, attribute_name: 'Strength', value: 1, connections: [node(518)]
+Node.create! x: 1036, y: 246, connections: [node(514)]
+Node.create! x: 984, y: 264, attribute_name: 'Defense', value: 2, connections: [node(520)]
+Node.create! x: 984, y: 228, lock_level: 2, connections: [node(521)]
+Node.create! x: 984, y: 192, connections: [node(522)]
+Ability.create! name: 'Full-Life', node: Node.find(523)
+Node.create! x: 948, y: 192, connections: [node(523)]
+Node.create! x: 984, y: 156, attribute_name: 'Evasion', value: 4, connections: [node(524)]
+Node.create! x: 1020, y: 192, connections: [node(525)]
+Node.create! x: 1056, y: 192, connections: [node(526)]
+Node.create! x: 1036, y: 142, attribute_name: 'HP', value: 200, connections: [node(527)]
+Node.create! x: 984, y: 122, connections: [node(528)]
+Node.create! x: 932, y: 142, attribute_name: 'Magic', value: 4, connections: [node(529)]
+Node.create! x: 912, y: 192, attribute_name: 'MP', value: 40, connections: [node(530)]
+Node.create! x: 932, y: 246, attribute_name: 'Agility', value: 4, connections: [node(531)]
+Node.create! x: 908, y: 268, attribute_name: 'Magic Defense', value: 2, connections: [node(532)]
+Node.create! x: 984, y: 300, attribute_name: 'Evasion', value: 4, connections: [node(533)]
+
