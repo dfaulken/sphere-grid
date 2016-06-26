@@ -12,16 +12,16 @@ ATTRIBUTE_ABBREVIATIONS = {
 }
 
 ATTRIBUTE_COLORS = {
-  'HP':            'lightgreen',
-  'MP':            'forestgreen',
-  'Strength':      'red',
-  'Defense':       'royalblue',
-  'Magic':         'violet',
-  'Magic Defense': 'lightblue',
-  'Agility':       'yellow',
-  'Luck':          'goldenrod',
-  'Evasion':       'white',
-  'Accuracy':      'orange'
+  'HP':            '#ade6b0',
+  'MP':            '#ade6cc',
+  'Strength':      '#e6adad',
+  'Defense':       '#adcbe6',
+  'Magic':         '#e1ade6',
+  'Magic Defense': '#b9ade6',
+  'Agility':       '#e6c9ad',
+  'Luck':          '#e6daad',
+  'Evasion':       '#b2e6ad',
+  'Accuracy':      '#e6adc7'
 }
 
 $(document).ready(function(){

@@ -9,6 +9,8 @@ class Node < ActiveRecord::Base
   belongs_to :ability
   has_and_belongs_to_many :characters
 
+  scope :empty, -> { where ability: nil, attribute_name: nil, lock_level: nil }
+
   private
 
   def value_valid_for_attribute_name?
