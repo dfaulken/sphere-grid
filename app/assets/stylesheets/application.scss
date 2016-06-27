@@ -1,5 +1,6 @@
 /*
  *= require_tree .
+ *= require jquery-ui
  *= require_self
  */
 
@@ -9,6 +10,17 @@ body{
     background: lightgrey;
     margin: 0 auto;
     width: 1732px;
-    height: 2054px;
+    height: 2254px;
+  }
+  #info-panel{
+    border-radius: 6px;
+    border-top: 3px solid grey;
+    position: fixed;
+    height: 250px;
+    bottom: 0px;
+    width: 100%;
+    .character-info{
+      background: #c8d3da;
+    }
   }
 }

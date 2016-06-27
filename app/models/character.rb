@@ -11,7 +11,13 @@ class Character < ActiveRecord::Base
 
   ATTRIBUTE_NAMES.each do |attribute|
     define_method attribute.parameterize.underscore do
-      base_attributes[attribute] + nodes.where(attribute_name: attribute).sum(:value)
+      calculated_value = base_attributes[attribute] + nodes.where(attribute_name: attribute).sum(:value)
+      max = case attribute
+            when 'HP' then 99_999
+            when 'MP' then 9_999
+            else 255
+            end
+      [calculated_value, max].min
     end
   end
 

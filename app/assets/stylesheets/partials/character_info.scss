@@ -1,0 +1,16 @@
+table.stats{
+  background: white;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 0.5em;
+  th, td{
+    border-collapse: collapse;
+    padding: 2px 5px;
+  }
+  th{
+    background: lightgrey;
+  }
+  td{
+    text-align: right;
+  }
+}

@@ -1,1 +1,9 @@
 #sphere-grid.container
+#info-panel
+  #character-tabs
+    %ul
+      - @characters.each do |character|
+        %li= link_to character.name, "#character-#{character.id}"
+    - @characters.each do |character|
+      %div.character-info{id: "character-#{character.id}"}
+        = render partial: 'character_info', locals: { character: character }

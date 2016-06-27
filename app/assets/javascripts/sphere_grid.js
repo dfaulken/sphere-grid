@@ -26,6 +26,9 @@ ATTRIBUTE_COLORS = {
 
 $(document).ready(function(){
   CANVAS = Raphael('sphere-grid', '100%', '100%');
+  $('#character-tabs').tabs({
+    heightStyle: 'fill'
+  });
   initializeSphereGrid();
 
   function initializeSphereGrid(){
@@ -44,7 +47,7 @@ $(document).ready(function(){
     else if(node.ability) drawAbilityNode(circle, node);
     else if(node.lock_level) drawLockNode(circle, node);
     else circle.attr({fill: 'silver'}); // empty node
-    drawNodeId(node);
+    // drawNodeId(node);
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
@@ -57,6 +60,7 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
+    if(node.characters) drawCharacterActivations(circle, node.characters);
   }
 
   function drawAbilityNode(circle, node){
@@ -67,6 +71,7 @@ $(document).ready(function(){
       CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
     }
     else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 6);
+    if(node.characters) drawCharacterActivations(circle, node.characters);
   }
 
   function drawLockNode(circle, node){
@@ -77,5 +82,12 @@ $(document).ready(function(){
 
   function drawNodeId(node){
     CANVAS.text(node.x + 13, node.y - 13, node.id).attr({fill: 'grey', 'font-size': 6});
+  }
+
+  function drawCharacterActivations(circle, characters){
+    _.each(characters, function(character, index){
+      CANVAS.text(circle.x - 15, circle.y, _.first(character.name))
+            .attr('fill', character.color);
+    });
   }
 });
