@@ -1,16 +1,14 @@
 table.stats{
-  background: white;
-  border: 2px solid grey;
-  border-radius: 10px;
-  margin: 0.5em;
+  width: 23em;
   th, td{
     border-collapse: collapse;
-    padding: 2px 5px;
+    padding: 1px 5px;
   }
   th{
     background: lightgrey;
   }
   td{
     text-align: right;
+    width: 3.5em;
   }
 }

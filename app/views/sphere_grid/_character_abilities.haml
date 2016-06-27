@@ -1,0 +1,7 @@
+.title Abilities
+.character-abilities
+  - Ability::TYPES.each do |ability_type|
+    .ability-type
+      .ability-type-name= ability_type
+      - character.abilities.where(ability_type: ability_type).each do |ability|
+        .ability-name= ability.name

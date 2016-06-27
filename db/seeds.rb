@@ -42,26 +42,26 @@ end
 
 Node.create! x: 858, y: 914
 Node.create! x: 858, y: 818, connections: [node(1)]
-Ability.create! name: 'Cheer', node: Node.find(2)
+Ability.create! name: 'Cheer', node: Node.find(2), ability_type: 'Special', number: 5
 Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [node(2)]
 Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [node(3)]
 Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [node(4)]
 Node.create! x: 858, y: 776, attribute_name: 'Accuracy', value: 1, connections: [node(5)]
 Node.create! x: 858, y: 728, connections: [node(6)]
-Ability.create! name: 'Flee', node: Node.find(7)
+Ability.create! name: 'Flee', node: Node.find(7), ability_type: 'Special', number: 1
 Node.create! x: 818, y: 776, connections: [node(7)]
 Node.create! x: 776, y: 776, connections: [node(8)]
 Node.create! x: 796, y: 798, connections: [node(9)]
-Ability.create! name: 'Extract Power', node: Node.find(10)
+Ability.create! name: 'Extract Power', node: Node.find(10), ability_type: 'Skill', number: 11
 Node.create! x: 818, y: 818, connections: [node(10)]
 Node.create! x: 776, y: 818, connections: [node(11)]
 Node.create! x: 858, y: 690, attribute_name: 'Strength', value: 1, connections: [node(7)]
 Node.create! x: 858, y: 655, attribute_name: 'Evasion', value: 2, connections: [node(13)]
 Node.create! x: 858, y: 620, connections: [node(14)]
-Ability.create! name: 'Haste', node: Node.find(15)
+Ability.create! name: 'Haste', node: Node.find(15), ability_type: 'White Magic', number: 12
 Node.create! x: 858, y: 582, attribute_name: 'Strength', value: 1, connections: [node(15)]
 Node.create! x: 894, y: 620, connections: [node(16)]
-Ability.create! name: 'Extract Speed', node: Node.find(17)
+Ability.create! name: 'Extract Speed', node: Node.find(17), ability_type: 'Skill', number: 13
 Node.create! x: 886, y: 648, attribute_name: 'Magic Defense', value: 3, connections: [node(17)]
 Node.create! x: 914, y: 672, attribute_name: 'Magic', value: 3, connections: [node(18)]
 Node.create! x: 808, y: 672, attribute_name: 'MP', value: 20, connections: [node(15)]
@@ -73,17 +73,17 @@ Node.create! x: 724, y: 818, attribute_name: 'HP', value: 200, connections: [nod
 Node.create! x: 704, y: 872, connections: [node(25)]
 Node.create! x: 784, y: 946, connections: [node(26)]
 Node.create! x: 652, y: 946, connections: [node(27)]
-Ability.create! name: 'Power Break', node: Node.find(28)
+Ability.create! name: 'Power Break', node: Node.find(28), ability_type: 'Skill', number: 15
 Node.create! x: 652, y: 890, lock_level: 2, connections: [node(28)]
 Node.create! x: 652, y: 854, attribute_name: 'Magic Defense', value: 4, connections: [node(29)]
 Node.create! x: 690, y: 818, attribute_name: 'Magic Defense', value: 4, connections: [node(30)]
 Node.create! x: 652, y: 782, lock_level: 4, connections: [node(31)]
 Node.create! x: 616, y: 818, lock_level: 4, connections: [node(32)]
 Node.create! x: 652, y: 818, connections: [node(33)]
-Ability.create! name: 'Full Break', node: Node.find(34)
+Ability.create! name: 'Full Break', node: Node.find(34), ability_type: 'Skill', number: 19
 Node.create! x: 600, y: 768, attribute_name: 'HP', value: 200, connections: [node(23)]
 Node.create! x: 580, y: 818, connections: [node(35)]
-Ability.create! name: 'Guard', node: Node.find(36)
+Ability.create! name: 'Guard', node: Node.find(36), ability_type: 'Special', number: 12
 Node.create! x: 600, y: 872, connections: [node(36)]
 Node.create! x: 540, y: 910, connections: [node(37)]
 Node.create! x: 464, y: 948, attribute_name: 'Magic', value: 2, connections: [node(38)]
@@ -92,7 +92,7 @@ Node.create! x: 538, y: 1020, attribute_name: 'Accuracy', value: 2, connections:
 Node.create! x: 650, y: 1020, connections: [node(41)]
 Node.create! x: 464, y: 984, connections: [node(39)]
 Node.create! x: 464, y: 1020, connections: [node(43)]
-Ability.create! name: 'Silence Attack', node: Node.find(44)
+Ability.create! name: 'Silence Attack', node: Node.find(44), ability_type: 'Skill', number: 2
 Node.create! x: 492, y: 996, attribute_name: 'Strength', value: 1, connections: [node(44)]
 Node.create! x: 492, y: 1048, attribute_name: 'Accuracy', value: 2, connections: [node(45)]
 Node.create! x: 518, y: 1072, connections: [node(46)]
@@ -105,20 +105,20 @@ Node.create! x: 392, y: 1020, attribute_name: 'HP', value: 200, connections: [no
 Node.create! x: 338, y: 966, connections: [node(53)]
 Node.create! x: 338, y: 1008, connections: [node(54)]
 Node.create! x: 318, y: 986, connections: [node(55)]
-Ability.create! name: 'Zombie Attack', node: Node.find(56)
+Ability.create! name: 'Zombie Attack', node: Node.find(56), ability_type: 'Skill', number: 5
 Node.create! x: 294, y: 966, attribute_name: 'Strength', value: 2, connections: [node(56)]
 Node.create! x: 294, y: 1008, attribute_name: 'Magic', value: 2, connections: [node(57)]
 Node.create! x: 858, y: 546, attribute_name: 'Agility', value: 2, connections: [node(16)]
 Node.create! x: 910, y: 566, attribute_name: 'Defense', value: 2, connections: [node(59)]
 Node.create! x: 930, y: 620, attribute_name: 'Strength', value: 1, connections: [node(60)]
 Node.create! x: 966, y: 620, connections: [node(61)]
-Ability.create! name: 'Provoke', node: Node.find(62)
+Ability.create! name: 'Provoke', node: Node.find(62), ability_type: 'Special', number: 16
 Node.create! x: 934, y: 542, attribute_name: 'MP', value: 20, connections: [node(62)]
 Node.create! x: 858, y: 510, attribute_name: 'HP', value: 200, connections: [node(63)]
 Node.create! x: 782, y: 542, attribute_name: 'Agility', value: 3, connections: [node(64)]
 Node.create! x: 806, y: 566, attribute_name: 'Defense', value: 2, connections: [node(65)]
 Node.create! x: 786, y: 620, connections: [node(66)]
-Ability.create! name: 'Delay Attack', node: Node.find(67)
+Ability.create! name: 'Delay Attack', node: Node.find(67), ability_type: 'Skill', number: 4
 Node.create! x: 822, y: 620, lock_level: 1, connections: [node(67)]
 Node.create! x: 832, y: 592, attribute_name: 'Magic', value: 4, connections: [node(68)]
 Node.create! x: 750, y: 620, attribute_name: 'MP', value: 20, connections: [node(67)]
@@ -141,7 +141,7 @@ Node.create! x: 956, y: 802, connections: [node(85)]
 Node.create! x: 976, y: 750, connections: [node(86)]
 Node.create! x: 934, y: 696, connections: [node(87), node(62)]
 Node.create! x: 1028, y: 926, connections: [node(83)]
-Ability.create! name: 'Use', node: Node.find(89)
+Ability.create! name: 'Use', node: Node.find(89), ability_type: 'Special', number: 3
 Node.create! x: 1142, y: 926, connections: [node(89)]
 Node.create! x: 1122, y: 980, connections: [node(90)]
 Node.create! x: 1143, y: 1032, attribute_name: 'Strength', value: 2, connections: [node(91)]
@@ -149,14 +149,14 @@ Node.create! x: 1194, y: 1052, connections: [node(92)]
 Node.create! x: 1246, y: 1032, attribute_name: 'Magic Defense', value: 3, connections: [node(93)]
 Node.create! x: 1194, y: 856, attribute_name: 'HP', value: 200, connections: [node(76)]
 Node.create! x: 1194, y: 906, connections: [node(95)]
-Ability.create! name: 'Luck', node: Node.find(96)
+Ability.create! name: 'Luck', node: Node.find(96), ability_type: 'Special', number: 9
 Node.create! x: 1194, y: 942, attribute_name: 'Agility', value: 4, connections: [node(96)]
 Node.create! x: 1158, y: 980, attribute_name: 'Magic Defense', value: 2, connections: [node(97)]
 Node.create! x: 1194, y: 1016, attribute_name: 'MP', value: 20, connections: [node(98)]
 Node.create! x: 1194, y: 980, attribute_name: 'Strength', value: 2, connections: [node(99)]
 Node.create! x: 1230, y: 980, connections: [node(100)]
 Node.create! x: 1266, y: 980, connections: [node(101)]
-Ability.create! name: 'Spare Change', node: Node.find(102)
+Ability.create! name: 'Spare Change', node: Node.find(102), ability_type: 'Special', number: 14
 Node.create! x: 1246, y: 926, attribute_name: 'HP', value: 200, connections: [node(102)]
 Node.create! x: 1322, y: 926, attribute_name: 'MP', value: 20, connections: [node(103)]
 Node.create! x: 1290, y: 850, attribute_name: 'Accuracy', value: 2, connections: [node(104)]
@@ -176,11 +176,11 @@ Node.create! x: 1322, y: 774, attribute_name: 'Agility', value: 3, connections: 
 Node.create! x: 1470, y: 850, connections: [node(115)]
 Node.create! x: 1434, y: 850, lock_level: 3, connections: [node(119)]
 Node.create! x: 1398, y: 850, connections: [node(120)]
-Ability.create! name: 'Pilfer Gil', node: Node.find(121)
+Ability.create! name: 'Pilfer Gil', node: Node.find(121), ability_type: 'Special', number: 19
 Node.create! x: 1450, y: 902, connections: [node(119)]
 Node.create! x: 1474, y: 926, attribute_name: 'Magic', value: 4, connections: [node(122)]
 Node.create! x: 1398, y: 958, connections: [node(123)]
-Ability.create! name: 'Dispel', node: Node.find(124)
+Ability.create! name: 'Dispel', node: Node.find(124), ability_type: 'White Magic', number: 19
 Node.create! x: 1506, y: 850, attribute_name: 'MP', value: 20, connections: [node(123)]
 Node.create! x: 1474, y: 774, attribute_name: 'HP', value: 200, connections: [node(125)]
 Node.create! x: 1398, y: 742, connections: [node(126)]
@@ -195,7 +195,7 @@ Node.create! x: 1584, y: 648, connections: [node(134)]
 Node.create! x: 1584, y: 594, connections: [node(135)]
 Node.create! x: 1530, y: 594, connections: [node(136)]
 Node.create! x: 1558, y: 622, connections: [node(137)]
-Ability.create! name: 'Death', node: Node.find(138)
+Ability.create! name: 'Death', node: Node.find(138), ability_type: 'Black Magic', number: 15
 Node.create! x: 1558, y: 658, attribute_name: 'Agility', value: 1, connections: [node(138)]
 Node.create! x: 1628, y: 622, attribute_name: 'HP', value: 200, connections: [node(134)]
 Node.create! x: 1608, y: 570, connections: [node(140)]
@@ -215,7 +215,7 @@ Node.create! x: 1356, y: 572, attribute_name: 'MP', value: 20, connections: [nod
 Node.create! x: 1356, y: 536, connections: [node(154)]
 Node.create! x: 1392, y: 500, connections: [node(155)]
 Node.create! x: 1356, y: 500, connections: [node(156)]
-Ability.create! name: 'Curaga', node: Node.find(157)
+Ability.create! name: 'Curaga', node: Node.find(157), ability_type: 'White Magic', number: 3
 Node.create! x: 1318, y: 500, attribute_name: 'Agility', value: 4, connections: [node(157)]
 Node.create! x: 1356, y: 464, connections: [node(158)]
 Node.create! x: 1356, y: 428, attribute_name: 'Evasion', value: 4, connections: [node(159)]
@@ -244,16 +244,16 @@ Node.create! x: 1620, y: 378, lock_level: 4, connections: [node(181)]
 Node.create! x: 1584, y: 348, lock_level: 4, connections: [node(182)]
 Node.create! x: 1546, y: 378, lock_level: 4, connections: [node(183)]
 Node.create! x: 1584, y: 378, connections: [node(184)]
-Ability.create! name: 'Ultima', node: Node.find(185)
+Ability.create! name: 'Ultima', node: Node.find(185), ability_type: 'Black Magic', number: 19
 Node.create! x: 1608, y: 742, connections: [node(134)]
-Ability.create! name: 'Blizzaga', node: Node.find(186)
+Ability.create! name: 'Blizzaga', node: Node.find(186), ability_type: 'Black Magic', number: 10
 Node.create! x: 1566, y: 742, connections: [node(186)]
-Ability.create! name: 'Thundaga', node: Node.find(187)
+Ability.create! name: 'Thundaga', node: Node.find(187), ability_type: 'Black Magic', number: 11
 Node.create! x: 1566, y: 784, connections: [node(187)]
-Ability.create! name: 'Waterga', node: Node.find(188)
+Ability.create! name: 'Waterga', node: Node.find(188), ability_type: 'Black Magic', number: 12
 Node.create! x: 1588, y: 762, connections: [node(188)]
 Node.create! x: 1608, y: 784, connections: [node(189)]
-Ability.create! name: 'Firaga', node: Node.find(190)
+Ability.create! name: 'Firaga', node: Node.find(190), ability_type: 'Black Magic', number: 9
 Node.create! x: 1548, y: 850, attribute_name: 'Magic', value: 4, connections: [node(190)]
 Node.create! x: 1548, y: 992, attribute_name: 'Magic Defense', value: 4, connections: [node(191)]
 Node.create! x: 1486, y: 1042, attribute_name: 'Agility', value: 2, connections: [node(192)]
@@ -276,7 +276,7 @@ Node.create! x: 1362, y: 1062, attribute_name: 'HP', value: 200, connections: [n
 Node.create! x: 1398, y: 1078, connections: [node(124)]
 Node.create! x: 1398, y: 1120, attribute_name: 'Magic Defense', value: 4, connections: [node(210)]
 Node.create! x: 1398, y: 1178, connections: [node(211)]
-Ability.create! name: 'Reflect', node: Node.find(212)
+Ability.create! name: 'Reflect', node: Node.find(212), ability_type: 'White Magic', number: 18
 Node.create! x: 1432, y: 1254, attribute_name: 'Agility', value: 2, connections: [node(212)]
 Node.create! x: 1398, y: 1330, connections: [node(213)]
 Node.create! x: 1324, y: 1362, attribute_name: 'MP', value: 20, connections: [node(214)]
@@ -289,7 +289,7 @@ Node.create! x: 1294, y: 1280, attribute_name: 'Magic', value: 4, connections: [
 Node.create! x: 1324, y: 1290, connections: [node(221)]
 Node.create! x: 1358, y: 1254, connections: [node(222)]
 Node.create! x: 1324, y: 1254, connections: [node(223)]
-Ability.create! name: 'Cura', node: Node.find(224)
+Ability.create! name: 'Cura', node: Node.find(224), ability_type: 'White Magic', number: 2
 Node.create! x: 1394, y: 1254, attribute_name: 'MP', value: 20, connections: [node(223)]
 Node.create! x: 1324, y: 1324, connections: [node(225)]
 Node.create! x: 1272, y: 1306, attribute_name: 'Magic', value: 4, connections: [node(226)]
@@ -302,13 +302,13 @@ Node.create! x: 1110, y: 1428, attribute_name: 'Magic Defense', value: 4, connec
 Node.create! x: 1136, y: 1454, attribute_name: 'HP', value: 200, connections: [node(233)]
 Node.create! x: 1162, y: 1480, attribute_name: 'Agility', value: 4, connections: [node(234)]
 Node.create! x: 1100, y: 1500, connections: [node(235)]
-Ability.create! name: 'Protect', node: Node.find(236)
+Ability.create! name: 'Protect', node: Node.find(236), ability_type: 'White Magic', number: 17
 Node.create! x: 1100, y: 1466, attribute_name: 'Magic', value: 4, connections: [node(236)]
 Node.create! x: 1072, y: 1428, attribute_name: 'MP', value: 20, connections: [node(237)]
 Node.create! x: 1100, y: 1392, attribute_name: 'HP', value: 200, connections: [node(238)]
 Node.create! x: 1100, y: 1354, attribute_name: 'Evasion', value: 4, connections: [node(239)]
 Node.create! x: 1182, y: 1330, connections: [node(240), node(228)]
-Ability.create! name: 'Shell', node: Node.find(241)
+Ability.create! name: 'Shell', node: Node.find(241), ability_type: 'White Magic', number: 16
 Node.create! x: 1056, y: 1376, connections: [node(240)]
 Node.create! x: 1036, y: 1428, attribute_name: 'Strength', value: 2, connections: [node(242)]
 Node.create! x: 1056, y: 1480, connections: [node(243)]
@@ -321,7 +321,7 @@ Node.create! x: 1324, y: 1598, attribute_name: 'Magic Defense', value: 4, connec
 Node.create! x: 1218, y: 1598, attribute_name: 'Defense', value: 2, connections: [node(250)]
 Node.create! x: 1340, y: 1546, connections: [node(246)]
 Node.create! x: 1376, y: 1546, connections: [node(252)]
-Ability.create! name: 'Demi', node: Node.find(253)
+Ability.create! name: 'Demi', node: Node.find(253), ability_type: 'Black Magic', number: 14
 Node.create! x: 1412, y: 1546, lock_level: 2, connections: [node(253)]
 Node.create! x: 1376, y: 1508, attribute_name: 'Strength', value: 3, connections: [node(254)]
 Node.create! x: 1450, y: 1546, attribute_name: 'Agility', value: 2, connections: [node(254)]
@@ -337,7 +337,7 @@ Node.create! x: 1202, y: 1650, attribute_name: 'Defense', value: 4, connections:
 Node.create! x: 1166, y: 1686, attribute_name: 'Accuracy', value: 4, connections: [node(265)]
 Node.create! x: 1130, y: 1650, connections: [node(266), node(262)]
 Node.create! x: 1166, y: 1650, connections: [node(265)]
-Ability.create! name: 'Bio', node: Node.find(268)
+Ability.create! name: 'Bio', node: Node.find(268), ability_type: 'Black Magic', number: 13
 Node.create! x: 1166, y: 1614, connections: [node(268), node(260)]
 Node.create! x: 1316, y: 1724, lock_level: 3, connections: [node(264)]
 Node.create! x: 1250, y: 1724, attribute_name: 'Defense', value: 4, connections: [node(270)]
@@ -358,7 +358,7 @@ Node.create! x: 1366, y: 1828, attribute_name: 'Accuracy', value: 4, connections
 Node.create! x: 1420, y: 1828, attribute_name: 'Strength', value: 4, connections: [node(285)]
 Node.create! x: 1420, y: 1774, attribute_name: 'HP', value: 200, connections: [node(286)]
 Node.create! x: 1392, y: 1802, connections: [node(287)]
-Ability.create! name: 'Triple Foul', node: Node.find(288)
+Ability.create! name: 'Triple Foul', node: Node.find(288), ability_type: 'Skill', number: 10
 Node.create! x: 1366, y: 1774, connections: [node(288), node(270)]
 Node.create! x: 1206, y: 1774, connections: [node(278)]
 Node.create! x: 1144, y: 1774, attribute_name: 'Magic', value: 4, connections: [node(290)]
@@ -379,13 +379,13 @@ Node.create! x: 966, y: 1850, attribute_name: 'HP', value: 200, connections: [no
 Node.create! x: 1002, y: 1850, connections: [node(305)]
 Node.create! x: 1038, y: 1814, connections: [node(306)]
 Node.create! x: 1038, y: 1850, connections: [node(307)]
-Ability.create! name: 'Osmose', node: Node.find(308)
+Ability.create! name: 'Osmose', node: Node.find(308), ability_type: 'Black Magic', number: 17
 Node.create! x: 986, y: 1798, attribute_name: 'Strength', value: 4, connections: [node(305)]
 Node.create! x: 1038, y: 1778, attribute_name: 'Magic', value: 3, connections: [node(309)]
 Node.create! x: 826, y: 1850, lock_level: 3, connections: [node(304)]
 Node.create! x: 802, y: 1874, attribute_name: 'HP', value: 200, connections: [node(311)]
 Node.create! x: 750, y: 1926, connections: [node(312)]
-Ability.create! name: 'Sentinel', node: Node.find(313)
+Ability.create! name: 'Sentinel', node: Node.find(313), ability_type: 'Special', number: 13
 Node.create! x: 750, y: 1890, attribute_name: 'Defense', value: 4, connections: [node(313)]
 Node.create! x: 714, y: 1926, attribute_name: 'Strength', value: 4, connections: [node(314)]
 Node.create! x: 750, y: 1962, attribute_name: 'Agility', value: 2, connections: [node(315)]
@@ -409,7 +409,7 @@ Node.create! x: 534, y: 1850, attribute_name: 'Strength', value: 3, connections:
 Node.create! x: 458, y: 1818, connections: [node(333)]
 Node.create! x: 458, y: 1852, lock_level: 3, connections: [node(334)]
 Node.create! x: 458, y: 1926, connections: [node(335)]
-Ability.create! name: 'Quick Hit', node: Node.find(336)
+Ability.create! name: 'Quick Hit', node: Node.find(336), ability_type: 'Skill', number: 22
 Node.create! x: 486, y: 1898, connections: [node(336)]
 Node.create! x: 486, y: 1952, connections: [node(337)]
 Node.create! x: 432, y: 1952, attribute_name: 'Strength', value: 4, connections: [node(338)]
@@ -439,7 +439,7 @@ Node.create! x: 194, y: 1796, attribute_name: 'HP', value: 200, connections: [no
 Node.create! x: 214, y: 1744, connections: [node(362)]
 Node.create! x: 178, y: 1744, connections: [node(363)]
 Node.create! x: 142, y: 1744, connections: [node(364)]
-Ability.create! name: 'Hastega', node: Node.find(365)
+Ability.create! name: 'Hastega', node: Node.find(365), ability_type: 'White Magic', number: 13
 Node.create! x: 142, y: 1780, attribute_name: 'Defense', value: 3, connections: [node(365)]
 Node.create! x: 106, y: 1744, attribute_name: 'Agility', value: 4, connections: [node(366)]
 Node.create! x: 142, y: 1708, attribute_name: 'Evasion', value: 4, connections: [node(367)]
@@ -449,9 +449,9 @@ Node.create! x: 218, y: 1668, connections: [node(370)]
 Node.create! x: 142, y: 1636, connections: [node(371)]
 Node.create! x: 66, y: 1668, connections: [node(372)]
 Node.create! x: 90, y: 1692, connections: [node(373)]
-Ability.create! name: 'Delay Buster', node: Node.find(374)
+Ability.create! name: 'Delay Buster', node: Node.find(374), ability_type: 'Skill', number: 9
 Node.create! x: 458, y: 1710, connections: [node(334)]
-Ability.create! name: 'Entrust', node: Node.find(375)
+Ability.create! name: 'Entrust', node: Node.find(375), ability_type: 'Special', number: 17
 Node.create! x: 418, y: 1668, attribute_name: 'Defense', value: 4, connections: [node(375)]
 Node.create! x: 392, y: 1642, attribute_name: 'Magic Defense', value: 2, connections: [node(376)]
 Node.create! x: 314, y: 1668, attribute_name: 'Strength', value: 4, connections: [node(371)]
@@ -469,7 +469,7 @@ Node.create! x: 178, y: 1534, connections: [node(388)]
 Node.create! x: 158, y: 1482, attribute_name: 'Defense', value: 2, connections: [node(389)]
 Node.create! x: 194, y: 1482, attribute_name: 'HP', value: 200, connections: [node(390)]
 Node.create! x: 230, y: 1482, connections: [node(391)]
-Ability.create! name: 'Slowga', node: Node.find(392)
+Ability.create! name: 'Slowga', node: Node.find(392), ability_type: 'White Magic', number: 15
 Node.create! x: 204, y: 1454, attribute_name: 'Strength', value: 3, connections: [node(392)]
 Node.create! x: 178, y: 1430, connections: [node(393)]
 Node.create! x: 230, y: 1518, lock_level: 1, connections: [node(392)]
@@ -487,7 +487,7 @@ Node.create! x: 50, y: 994, attribute_name: 'Defense', value: 2, connections: [n
 Node.create! x: 282, y: 1310, attribute_name: 'HP', value: 200, connections: [node(399)]
 Node.create! x: 208, y: 1278, connections: [node(407)]
 Node.create! x: 174, y: 1202, connections: [node(408)]
-Ability.create! name: 'Threaten', node: Node.find(409)
+Ability.create! name: 'Threaten', node: Node.find(409), ability_type: 'Special', number: 15
 Node.create! x: 208, y: 1126, attribute_name: 'Evasion', value: 2, connections: [node(409)]
 Node.create! x: 282, y: 1094, attribute_name: 'Magic Defense', value: 1, connections: [node(410)]
 Node.create! x: 216, y: 1036, connections: [node(411)]
@@ -499,7 +499,7 @@ Node.create! x: 136, y: 916, attribute_name: 'MP', value: 20, connections: [node
 Node.create! x: 136, y: 800, attribute_name: 'Agility', value: 4, connections: [node(417)]
 Node.create! x: 136, y: 690, attribute_name: 'Evasion', value: 3, connections: [node(418)]
 Node.create! x: 114, y: 668, connections: [node(419)]
-Ability.create! name: 'Slow', node: Node.find(420)
+Ability.create! name: 'Slow', node: Node.find(420), ability_type: 'White Magic', number: 14
 Node.create! x: 94, y: 648, lock_level: 2, connections: [node(420)]
 Node.create! x: 94, y: 690, attribute_name: 'Luck', value: 2, connections: [node(421)]
 Node.create! x: 136, y: 648, connections: [node(420)]
@@ -512,7 +512,7 @@ Node.create! x: 116, y: 496, connections: [node(424)]
 Node.create! x: 136, y: 444, attribute_name: 'Luck', value: 1, connections: [node(429)]
 Node.create! x: 160, y: 468, lock_level: 3, connections: [node(430)]
 Node.create! x: 188, y: 496, connections: [node(431)]
-Ability.create! name: 'Bribe', node: Node.find(432)
+Ability.create! name: 'Bribe', node: Node.find(432), ability_type: 'Special', number: 22
 Node.create! x: 224, y: 496, lock_level: 3, connections: [node(432)]
 Node.create! x: 260, y: 496, connections: [node(433)]
 Node.create! x: 188, y: 459, attribute_name: 'HP', value: 200, connections: [node(432)]
@@ -534,7 +534,7 @@ Node.create! x: 220, y: 154, attribute_name: 'HP', value: 200, connections: [nod
 Node.create! x: 244, y: 178, lock_level: 2, connections: [node(450)]
 Node.create! x: 296, y: 156, connections: [node(451)]
 Node.create! x: 296, y: 122, connections: [node(452)]
-Ability.create! name: 'Flare', node: Node.find(453)
+Ability.create! name: 'Flare', node: Node.find(453), ability_type: 'Black Magic', number: 18
 Node.create! x: 348, y: 178, lock_level: 3, connections: [node(452)]
 Node.create! x: 372, y: 156, lock_level: 3, connections: [node(454)]
 Node.create! x: 404, y: 230, connections: [node(455)]
@@ -544,7 +544,7 @@ Node.create! x: 296, y: 194, lock_level: 3, connections: [node(458)]
 Node.create! x: 260, y: 230, connections: [node(459)]
 Node.create! x: 296, y: 266, connections: [node(460)]
 Node.create! x: 296, y: 230, connections: [node(461)]
-Ability.create! name: 'Nab Gil', node: Node.find(462)
+Ability.create! name: 'Nab Gil', node: Node.find(462), ability_type: 'Skill', number: 21
 Node.create! x: 560, y: 328, connections: [node(441)]
 Node.create! x: 596, y: 328, attribute_name: 'HP', value: 200, connections: [node(463)]
 Node.create! x: 596, y: 364, attribute_name: 'Magic Defense', value: 2, connections: [node(464)]
@@ -570,13 +570,13 @@ Node.create! x: 778, y: 74, attribute_name: 'HP', value: 200, connections: [node
 Node.create! x: 674, y: 74, attribute_name: 'MP', value: 40, connections: [node(483)]
 Node.create! x: 674, y: 178, attribute_name: 'Luck', value: 4, connections: [node(485)]
 Node.create! x: 778, y: 178, connections: [node(486)]
-Ability.create! name: 'Auto-Life', node: Node.find(487)
+Ability.create! name: 'Auto-Life', node: Node.find(487), ability_type: 'White Magic', number: 22
 Node.create! x: 762, y: 126, connections: [node(481)]
 Node.create! x: 726, y: 90, lock_level: 4, connections: [node(488)]
 Node.create! x: 690, y: 126, lock_level: 4, connections: [node(489)]
 Node.create! x: 726, y: 162, lock_level: 4, connections: [node(490)]
 Node.create! x: 726, y: 126, connections: [node(491)]
-Ability.create! name: 'Quick Pockets', node: Node.find(492)
+Ability.create! name: 'Quick Pockets', node: Node.find(492), ability_type: 'Special', number: 20
 Node.create! x: 1354, y: 326, attribute_name: 'Defense', value: 3, connections: [node(164)]
 Node.create! x: 1386, y: 250, attribute_name: 'Agility', value: 2, connections: [node(493)]
 Node.create! x: 1354, y: 174, attribute_name: 'Magic', value: 4, connections: [node(494)]
@@ -595,7 +595,7 @@ Node.create! x: 1314, y: 250, attribute_name: 'Magic Defense', value: 4, connect
 Node.create! x: 1278, y: 214, attribute_name: 'Magic', value: 4, connections: [node(507)]
 Node.create! x: 1242, y: 250, attribute_name: 'MP', value: 40, connections: [node(508)]
 Node.create! x: 1278, y: 250, connections: [node(509)]
-Ability.create! name: 'Double- cast', node: Node.find(510)
+Ability.create! name: 'Doublecast', node: Node.find(510), ability_type: 'Special', number: 21
 Node.create! x: 1226, y: 302, connections: [node(510)]
 Node.create! x: 1202, y: 326, connections: [node(511)]
 Node.create! x: 1116, y: 326, lock_level: 3, connections: [node(512)]
@@ -603,14 +603,14 @@ Node.create! x: 1060, y: 270, attribute_name: 'Strength', value: 1, connections:
 Node.create! x: 1092, y: 192, lock_level: 4, connections: [node(514)]
 Node.create! x: 1060, y: 116, attribute_name: 'Strength', value: 1, connections: [node(515)]
 Node.create! x: 984, y: 84, connections: [node(516)]
-Ability.create! name: 'Holy', node: Node.find(517)
+Ability.create! name: 'Holy', node: Node.find(517), ability_type: 'White Magic', number: 21
 Node.create! x: 908, y: 116, attribute_name: 'Defense', value: 1, connections: [node(517)]
 Node.create! x: 876, y: 192, attribute_name: 'Strength', value: 1, connections: [node(518)]
 Node.create! x: 1036, y: 246, connections: [node(514)]
 Node.create! x: 984, y: 264, attribute_name: 'Defense', value: 2, connections: [node(520)]
 Node.create! x: 984, y: 228, lock_level: 2, connections: [node(521)]
 Node.create! x: 984, y: 192, connections: [node(522)]
-Ability.create! name: 'Full-Life', node: Node.find(523)
+Ability.create! name: 'Full-Life', node: Node.find(523), ability_type: 'White Magic', number: 11
 Node.create! x: 948, y: 192, connections: [node(523)]
 Node.create! x: 984, y: 156, attribute_name: 'Evasion', value: 4, connections: [node(524)]
 Node.create! x: 1020, y: 192, connections: [node(525)]
@@ -632,7 +632,7 @@ Node.create! x: 1162, y: 464, connections: [node(540)]
 Node.create! x: 1162, y: 410, connections: [node(541)]
 Node.create! x: 1108, y: 410, attribute_name: 'Strength', value: 3, connections: [node(542)]
 Node.create! x: 1136, y: 436, connections: [node(543)]
-Ability.create! name: 'Regen', node: Node.find(544)
+Ability.create! name: 'Regen', node: Node.find(544), ability_type: 'White Magic', number: 20
 Node.create! x: 1238, y: 694, attribute_name: 'Strength', value: 2, connections: [node(118)]
 Node.create! x: 1248, y: 642, attribute_name: 'MP', value: 20, connections: [node(545)]
 Node.create! x: 1238, y: 590, attribute_name: 'Magic', value: 3, connections: [node(546)]
@@ -641,7 +641,7 @@ Node.create! x: 1186, y: 608, connections: [node(548)]
 Node.create! x: 1214, y: 616, connections: [node(549)]
 Node.create! x: 1214, y: 660, connections: [node(550)]
 Node.create! x: 1186, y: 642, connections: [node(551)]
-Ability.create! name: 'Mug', node: Node.find(552)
+Ability.create! name: 'Mug', node: Node.find(552), ability_type: 'Skill', number: 20
 Node.create! x: 1150, y: 642, connections: [node(549)]
 Node.create! x: 1186, y: 678, attribute_name: 'Agility', value: 3, connections: [node(553)]
 Node.create! x: 1186, y: 714, connections: [node(554)]
@@ -682,7 +682,7 @@ Node.create! x: 494, y: 568, attribute_name: 'MP', value: 20, connections: [node
 Node.create! x: 546, y: 548, connections: [node(589)]
 Node.create! x: 589, y: 568, lock_level: 4, connections: [node(590)]
 Node.create! x: 682, y: 568, connections: [node(591)]
-Ability.create! name: 'Copycat', node: Node.find(592)
+Ability.create! name: 'Copycat', node: Node.find(592), ability_type: 'Special', number: 18
 Node.create! x: 546, y: 484, attribute_name: 'Evasion', value: 2, connections: [node(590)]
 Node.create! x: 312, y: 620, attribute_name: 'Accuracy', value: 2, connections: [node(426)]
 Node.create! x: 390, y: 620, attribute_name: 'MP', value: 20, connections: [node(594)]
@@ -716,7 +716,7 @@ Node.create! x: 260, y: 792, connections: [node(621)]
 Node.create! x: 286, y: 782, attribute_name: 'Evasion', value: 1, connections: [node(622)]
 Node.create! x: 314, y: 792, attribute_name: 'Evasion', value: 1, connections: [node(623)]
 Node.create! x: 286, y: 818, connections: [node(624)]
-Ability.create! name: 'Magic Break', node: Node.find(625)
+Ability.create! name: 'Magic Break', node: Node.find(625), ability_type: 'Skill', number: 16
 Node.create! x: 324, y: 818, attribute_name: 'Agility', value: 2, connections: [node(625)]
 Node.create! x: 360, y: 818, connections: [node(626)]
 Node.create! x: 340, y: 766, attribute_name: 'Strength', value: 4, connections: [node(627)]
@@ -727,12 +727,12 @@ Node.create! x: 396, y: 818, attribute_name: 'HP', value: 200, connections: [nod
 Node.create! x: 358, y: 1126, attribute_name: 'Magic', value: 2, connections: [node(49)]
 Node.create! x: 464, y: 1202, lock_level: 1, connections: [node(633), node(48)]
 Node.create! x: 334, y: 1150, connections: [node(633)]
-Ability.create! name: 'Aim', node: Node.find(635)
+Ability.create! name: 'Aim', node: Node.find(635), ability_type: 'Special', number: 6
 Node.create! x: 282, y: 1130, attribute_name: 'Agility', value: 2, connections: [node(635)]
 Node.create! x: 230, y: 1150, attribute_name: 'HP', value: 200, connections: [node(636)]
 Node.create! x: 210, y: 1202, attribute_name: 'Evasion', value: 1, connections: [node(637)]
 Node.create! x: 282, y: 1202, connections: [node(638)]
-Ability.create! name: 'Sleep Attack', node: Node.find(639)
+Ability.create! name: 'Sleep Attack', node: Node.find(639), ability_type: 'Skill', number: 3
 Node.create! x: 256, y: 1174, attribute_name: 'MP', value: 20, connections: [node(639)]
 Node.create! x: 310, y: 1174, connections: [node(640)]
 Node.create! x: 310, y: 1228, attribute_name: 'Accuracy', value: 3, connections: [node(641)]
@@ -744,13 +744,13 @@ Node.create! x: 390, y: 1202, attribute_name: 'MP', value: 20, connections: [nod
 Node.create! x: 354, y: 1202, attribute_name: 'Luck', value: 2, connections: [node(647)]
 Node.create! x: 350, y: 1434, connections: [node(401)]
 Node.create! x: 416, y: 1480, connections: [node(649)]
-Ability.create! name: 'Armor Break', node: Node.find(650)
+Ability.create! name: 'Armor Break', node: Node.find(650), ability_type: 'Skill', number: 17
 Node.create! x: 417, y: 1564, attribute_name: 'Magic Defense', value: 1, connections: [node(650)]
 Node.create! x: 436, y: 1616, attribute_name: 'HP', value: 200, connections: [node(651)]
 Node.create! x: 498, y: 1668, attribute_name: 'Strength', value: 4, connections: [node(652)]
 Node.create! x: 534, y: 1668, connections: [node(653)]
 Node.create! x: 570, y: 1668, connections: [node(654)]
-Ability.create! name: 'Mental Break', node: Node.find(655)
+Ability.create! name: 'Mental Break', node: Node.find(655), ability_type: 'Skill', number: 18
 Node.create! x: 542, y: 1640, attribute_name: 'Strength', value: 4, connections: [node(655)]
 Node.create! x: 518, y: 1616, attribute_name: 'HP', value: 200, connections: [node(656)]
 Node.create! x: 570, y: 1596, attribute_name: 'Defense', value: 3, connections: [node(657)]
@@ -771,7 +771,7 @@ Node.create! x: 750, y: 1764, attribute_name: 'Agility', value: 2, connections: 
 Node.create! x: 750, y: 1818, attribute_name: 'HP', value: 200, connections: [node(672), node(326)]
 Node.create! x: 1038, y: 1742, attribute_name: 'HP', value: 200, connections: [node(310)]
 Node.create! x: 1038, y: 1688, connections: [node(674)]
-Ability.create! name: 'Sleep Buster', node: Node.find(675)
+Ability.create! name: 'Sleep Buster', node: Node.find(675), ability_type: 'Skill', number: 8
 Node.create! x: 1002, y: 1636, attribute_name: 'Strength', value: 4, connections: [node(675)]
 Node.create! x: 950, y: 1656, attribute_name: 'HP', value: 200, connections: [node(676)]
 Node.create! x: 898, y: 1636, attribute_name: 'Magic', value: 3, connections: [node(677)]
@@ -786,7 +786,7 @@ Node.create! x: 732, y: 1564, attribute_name: 'Agility', value: 4, connections: 
 Node.create! x: 656, y: 1532, attribute_name: 'Accuracy', value: 3, connections: [node(686)]
 Node.create! x: 570, y: 1532, attribute_name: 'HP', value: 200, connections: [node(687)]
 Node.create! x: 522, y: 1480, connections: [node(688)]
-Ability.create! name: 'Silence Buster', node: Node.find(689)
+Ability.create! name: 'Silence Buster', node: Node.find(689), ability_type: 'Skill', number: 7
 Node.create! x: 496, y: 1454, attribute_name: 'Evasion', value: 2, connections: [node(689)]
 Node.create! x: 468, y: 1464, attribute_name: 'HP', value: 200, connections: [node(690)]
 Node.create! x: 434, y: 1428, attribute_name: 'Magic', value: 3, connections: [node(691)]
@@ -800,35 +800,35 @@ Node.create! x: 542, y: 1428, attribute_name: 'Magic', value: 3, connections: [n
 Node.create! x: 522, y: 1376, attribute_name: 'Accuracy', value: 3, connections: [node(699)]
 Node.create! x: 468, y: 1366, attribute_name: 'Strength', value: 2, connections: [node(700)]
 Node.create! x: 468, y: 1278, connections: [node(701)]
-Ability.create! name: 'Dark Buster', node: Node.find(702)
+Ability.create! name: 'Dark Buster', node: Node.find(702), ability_type: 'Skill', number: 6
 Node.create! x: 358, y: 1278, attribute_name: 'HP', value: 200, connections: [node(702), node(646)]
 Node.create! x: 588, y: 1376, connections: [node(700)]
-Ability.create! name: 'Drain', node: Node.find(704)
+Ability.create! name: 'Drain', node: Node.find(704), ability_type: 'Black Magic', number: 16
 Node.create! x: 624, y: 1456, lock_level: 1, connections: [node(704)]
 Node.create! x: 660, y: 1456, connections: [node(705)]
 Node.create! x: 678, y: 1508, connections: [node(706)]
 Node.create! x: 732, y: 1528, connections: [node(707)]
 Node.create! x: 732, y: 1492, connections: [node(708)]
-Ability.create! name: 'Thundara', node: Node.find(709)
+Ability.create! name: 'Thundara', node: Node.find(709), ability_type: 'Black Magic', number: 7
 Node.create! x: 732, y: 1456, connections: [node(709)]
 Node.create! x: 696, y: 1456, connections: [node(710)]
-Ability.create! name: 'Watera', node: Node.find(711)
+Ability.create! name: 'Watera', node: Node.find(711), ability_type: 'Black Magic', number: 8
 Node.create! x: 732, y: 1420, connections: [node(711)]
-Ability.create! name: 'Fira', node: Node.find(712)
+Ability.create! name: 'Fira', node: Node.find(712), ability_type: 'Black Magic', number: 5
 Node.create! x: 732, y: 1384, attribute_name: 'HP', value: 200, connections: [node(712)]
 Node.create! x: 678, y: 1404, attribute_name: 'Evasion', value: 4, connections: [node(713)]
 Node.create! x: 656, y: 1380, attribute_name: 'Magic Defense', value: 4, connections: [node(714)]
 Node.create! x: 732, y: 1348, connections: [node(715)]
 Node.create! x: 808, y: 1380, attribute_name: 'Agility', value: 3, connections: [node(716)]
 Node.create! x: 768, y: 1456, connections: [node(709)]
-Ability.create! name: 'Blizzara', node: Node.find(718)
+Ability.create! name: 'Blizzara', node: Node.find(718), ability_type: 'Black Magic', number: 6
 Node.create! x: 804, y: 1456, attribute_name: 'MP', value: 20, connections: [node(718)]
 Node.create! x: 838, y: 1456, attribute_name: 'Defense', value: 2, connections: [node(719)]
 Node.create! x: 950, y: 1456, attribute_name: 'Magic Defense', value: 4, connections: [node(720)]
 Node.create! x: 950, y: 1510, attribute_name: 'MP', value: 20, connections: [node(721)]
 Node.create! x: 1002, y: 1532, attribute_name: 'Defense', value: 3, connections: [node(722), node(244)]
 Node.create! x: 950, y: 1584, connections: [node(723)]
-Ability.create! name: 'Reflex', node: Node.find(724)
+Ability.create! name: 'Reflex', node: Node.find(724), ability_type: 'Special', number: 8
 Node.create! x: 924, y: 1612, attribute_name: 'Evasion', value: 4, connections: [node(724)]
 Node.create! x: 978, y: 1612, connections: [node(725)]
 Node.create! x: 986, y: 1584, attribute_name: 'Magic Defense', value: 4, connections: [node(726)]
@@ -838,11 +838,11 @@ Node.create! x: 1018, y: 1326, attribute_name: 'Defense', value: 2, connections:
 Node.create! x: 964, y: 1306, attribute_name: 'MP', value: 20, connections: [node(730)]
 Node.create! x: 992, y: 1280, attribute_name: 'Magic', value: 3, connections: [node(731)]
 Node.create! x: 1018, y: 1254, connections: [node(732)]
-Ability.create! name: 'Life', node: Node.find(733)
+Ability.create! name: 'Life', node: Node.find(733), ability_type: 'White Magic', number: 10
 Node.create! x: 1046, y: 1280, attribute_name: 'HP', value: 200, connections: [node(733)]
 Node.create! x: 1070, y: 1306, connections: [node(734)]
 Node.create! x: 1090, y: 1254, connections: [node(735), node(204)]
-Ability.create! name: 'Pray', node: Node.find(736)
+Ability.create! name: 'Pray', node: Node.find(736), ability_type: 'Special', number: 4
 Node.create! x: 992, y: 1226, connections: [node(732)]
 Node.create! x: 1046, y: 1226, attribute_name: 'Agility', value: 3, connections: [node(737)]
 Node.create! x: 1070, y: 1202, attribute_name: 'MP', value: 20, connections: [node(738)]
@@ -850,35 +850,35 @@ Node.create! x: 1018, y: 1182, attribute_name: 'Magic', value: 3, connections: [
 Node.create! x: 964, y: 1202, attribute_name: 'Magic Defense', value: 3, connections: [node(740)]
 Node.create! x: 946, y: 1254, connections: [node(741)]
 Node.create! x: 874, y: 1254, connections: [node(742)]
-Ability.create! name: 'NulTide', node: Node.find(743)
+Ability.create! name: 'NulTide', node: Node.find(743), ability_type: 'White Magic', number: 7
 Node.create! x: 832, y: 1254, connections: [node(743)]
-Ability.create! name: 'NulShock', node: Node.find(744)
+Ability.create! name: 'NulShock', node: Node.find(744), ability_type: 'White Magic', number: 6
 Node.create! x: 832, y: 1212, connections: [node(744)]
-Ability.create! name: 'NulBlaze', node: Node.find(745)
+Ability.create! name: 'NulBlaze', node: Node.find(745), ability_type: 'White Magic', number: 5
 Node.create! x: 852, y: 1232, connections: [node(745)]
 Node.create! x: 874, y: 1212, connections: [node(746)]
-Ability.create! name: 'NulFrost', node: Node.find(747)
+Ability.create! name: 'NulFrost', node: Node.find(747), ability_type: 'White Magic', number: 8
 Node.create! x: 934, y: 1156, connections: [node(747)]
 Node.create! x: 934, y: 1096, connections: [node(748)]
 Node.create! x: 994, y: 1096, connections: [node(749)]
 Node.create! x: 1016, y: 1118, connections: [node(750)]
 Node.create! x: 1036, y: 1096, connections: [node(751)]
 Node.create! x: 1036, y: 1138, connections: [node(752)]
-Ability.create! name: 'Esuna', node: Node.find(753)
+Ability.create! name: 'Esuna', node: Node.find(753), ability_type: 'White Magic', number: 9
 Node.create! x: 994, y: 1138, connections: [node(753)]
-Ability.create! name: 'Cure', node: Node.find(754)
+Ability.create! name: 'Cure', node: Node.find(754), ability_type: 'White Magic', number: 1
 Node.create! x: 1102, y: 1138, attribute_name: 'Strength', value: 3, connections: [node(753)]
 Node.create! x: 858, y: 1128, connections: [node(749)]
 Node.create! x: 782, y: 1096, connections: [node(756)]
 Node.create! x: 720, y: 1096, connections: [node(757)]
-Ability.create! name: 'Blizzard', node: Node.find(758)
+Ability.create! name: 'Blizzard', node: Node.find(758), ability_type: 'Black Magic', number: 2
 Node.create! x: 698, y: 1118, connections: [node(758)]
 Node.create! x: 678, y: 1096, connections: [node(759)]
-Ability.create! name: 'Fire', node: Node.find(760)
+Ability.create! name: 'Fire', node: Node.find(760), ability_type: 'Black Magic', number: 1
 Node.create! x: 678, y: 1138, connections: [node(760)]
-Ability.create! name: 'Thunder', node: Node.find(761)
+Ability.create! name: 'Thunder', node: Node.find(761), ability_type: 'Black Magic', number: 3
 Node.create! x: 720, y: 1138, connections: [node(761)]
-Ability.create! name: 'Water', node: Node.find(762)
+Ability.create! name: 'Water', node: Node.find(762), ability_type: 'Black Magic', number: 4
 Node.create! x: 782, y: 1156, connections: [node(757)]
 Node.create! x: 722, y: 1210, attribute_name: 'MP', value: 20, connections: [node(763)]
 Node.create! x: 764, y: 1210, attribute_name: 'Magic Defense', value: 3, connections: [node(764)]
@@ -888,7 +888,7 @@ Node.create! x: 722, y: 1250, attribute_name: 'HP', value: 200, connections: [no
 Node.create! x: 674, y: 1250, connections: [node(768)]
 Node.create! x: 654, y: 1202, attribute_name: 'Evasion', value: 4, connections: [node(769)]
 Node.create! x: 602, y: 1178, connections: [node(770)]
-Ability.create! name: 'Focus', node: Node.find(771)
+Ability.create! name: 'Focus', node: Node.find(771), ability_type: 'Special', number: 7
 Node.create! x: 550, y: 1202, attribute_name: 'HP', value: 200, connections: [node(771), node(634)]
 Node.create! x: 574, y: 1224, attribute_name: 'Evasion', value: 4, connections: [node(772)]
 Node.create! x: 630, y: 1224, attribute_name: 'Defense', value: 2, connections: [node(773)]
@@ -901,30 +901,30 @@ Node.create! x: 566, y: 1252, connections: [node(779)]
 Node.create! x: 530, y: 1252, attribute_name: 'MP', value: 20, connections: [node(780)]
 Node.create! x: 550, y: 1304, attribute_name: 'Magic Defense', value: 1, connections: [node(781)]
 Node.create! x: 1028, y: 1020, connections: [node(89)]
-Ability.create! name: 'Steal', node: Node.find(783)
+Ability.create! name: 'Steal', node: Node.find(783), ability_type: 'Special', number: 2
 Node.create! x: 966, y: 1020, lock_level: 1, connections: [node(783), node(749)]
 Node.create! x: 930, y: 1020, attribute_name: 'Magic', value: 2, connections: [node(784)]
 Node.create! x: 910, y: 1072, connections: [node(785)]
-Ability.create! name: 'Extract Skill', node: Node.find(786)
+Ability.create! name: 'Extract Ability', node: Node.find(786), ability_type: 'Skill', number: 14
 Node.create! x: 894, y: 1020, connections: [node(785)]
-Ability.create! name: 'Scan', node: Node.find(787)
+Ability.create! name: 'Scan', node: Node.find(787), ability_type: 'White Magic', number: 4
 Node.create! x: 886, y: 1048, connections: [node(787)]
 Node.create! x: 858, y: 1018, connections: [node(788)]
-Ability.create! name: 'Lancet', node: Node.find(789)
+Ability.create! name: 'Lancet', node: Node.find(789), ability_type: 'Special', number: 11
 Node.create! x: 830, y: 990, connections: [node(789)]
 Node.create! x: 806, y: 966, connections: [node(790)]
-Ability.create! name: 'Dark Attack', node: Node.find(791)
+Ability.create! name: 'Dark Attack', node: Node.find(791), ability_type: 'Skill', number: 1
 Node.create! x: 786, y: 1020, connections: [node(791)]
 Node.create! x: 748, y: 1020, connections: [node(792), node(42)]
 Node.create! x: 820, y: 1020, attribute_name: 'Defense', value: 2, connections: [node(790)]
 Node.create! x: 830, y: 1048, attribute_name: 'HP', value: 200, connections: [node(794)]
 Node.create! x: 858, y: 1056, attribute_name: 'Strength', value: 2, connections: [node(795)]
 Node.create! x: 858, y: 1092, connections: [node(796)]
-Ability.create! name: 'Extract Mana', node: Node.find(797)
+Ability.create! name: 'Extract Mana', node: Node.find(797), ability_type: 'Skill', number: 12
 Node.create! x: 806, y: 1072, connections: [node(797), node(757)]
 Node.create! x: 886, y: 990, connections: [node(789)]
 Node.create! x: 858, y: 984, connections: [node(799)]
 Node.create! x: 858, y: 946, connections: [node(800)]
-Ability.create! name: 'Jinx', node: Node.find(801)
+Ability.create! name: 'Jinx', node: Node.find(801), ability_type: 'Special', number: 10
 Node.create! x: 910, y: 966, connections: [node(801)]
 Node.create! x: 934, y: 944, connections: [node(802), node(1)]

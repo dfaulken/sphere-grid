@@ -1,0 +1,20 @@
+.character-abilities{
+  display: flex;
+  .ability-type{
+    height: 100%;
+    overflow: hidden;
+    padding: 0 2em;
+    .ability-type-name{
+      border-bottom: 2px solid lightgrey;
+      text-align: center;
+    }
+    .ability-name{
+      background: lightgrey;
+      border: 1px solid grey;
+      border-radius: 12px;
+      float: left;
+      margin: 1px;
+      padding: 1px 5px;
+    }
+  }
+}

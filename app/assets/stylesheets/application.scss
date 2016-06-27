@@ -15,12 +15,25 @@ body{
   #info-panel{
     border-radius: 6px;
     border-top: 3px solid grey;
-    position: fixed;
-    height: 250px;
     bottom: 0px;
+    height: 250px;
+    position: fixed;
     width: 100%;
     .character-info{
       background: #c8d3da;
+      display: flex;
+      .panel{
+        background: white;
+        border: 2px solid grey;
+        border-radius: 10px;
+        margin: 0.25em;
+        .title{
+          background: lightgrey;
+          border-top-left-radius: inherit;
+          border-top-right-radius: inherit;
+          text-align: center;
+        }
+      }
     }
   }
 }
