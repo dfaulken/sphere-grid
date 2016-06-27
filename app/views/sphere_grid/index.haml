@@ -7,4 +7,4 @@
     - @characters.each do |character|
       %div.character-info{id: "character-#{character.id}"}
         .panel= render partial: 'character_stats', locals: { character: character }
-        .panel= render partial: 'character_abilities', locals: { character: character }
+        .panel.abilities= render partial: 'character_abilities', locals: { character: character }
