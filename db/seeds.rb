@@ -43,7 +43,7 @@ end
 Node.create! x: 858, y: 914
 Node.create! x: 858, y: 818, connections: [node(1)]
 Ability.create! name: 'Cheer', node: Node.find(2), ability_type: 'Special', number: 5
-Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 2, connections: [node(2)]
+Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 1, connections: [node(2)]
 Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [node(3)]
 Node.create! x: 882, y: 798, attribute_name: 'Strength', value: 1, connections: [node(4)]
 Node.create! x: 858, y: 776, attribute_name: 'Accuracy', value: 1, connections: [node(5)]
