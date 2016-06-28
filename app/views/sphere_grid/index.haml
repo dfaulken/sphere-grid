@@ -3,7 +3,8 @@
   #character-tabs
     %ul
       - @characters.each do |character|
-        %li= link_to character.name, "#character-#{character.id}"
+        %li.character-name{data: { name: character.name, color: character.color } }
+          = link_to character.name, "#character-#{character.id}"
     - @characters.each do |character|
       %div.character-info{id: "character-#{character.id}"}
         .panel= render partial: 'character_stats', locals: { character: character }

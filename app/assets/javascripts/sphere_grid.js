@@ -26,12 +26,20 @@ ATTRIBUTE_COLORS = {
 
 $(document).ready(function(){
   CANVAS = Raphael('sphere-grid', '100%', '100%');
+
+  var characterName = 'Tidus';
+  var characterColor = 'blue';
+
   $('#character-tabs').tabs({
     heightStyle: 'fill'
   });
   initializeSphereGrid();
 
+  $('#info-panel').on('click', '.character-name', initializeSphereGrid);
+
   function initializeSphereGrid(){
+    characterName = $('li.character-name.ui-state-active:eq(0)').data('name');
+    characterColor = $('li.character-name.ui-state-active:eq(0)').data('color');
     $.get('/node_data', function(nodes){
       CANVAS.clear();
       _.each(nodes, drawNode);
@@ -60,7 +68,7 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
-    if(node.characters) drawCharacterActivations(circle, node.characters);
+    if(node.characters) drawCharacterActivation(node, circle);
   }
 
   function drawAbilityNode(circle, node){
@@ -71,7 +79,7 @@ $(document).ready(function(){
       CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
     }
     else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 6);
-    if(node.characters) drawCharacterActivations(circle, node.characters);
+    if(node.characters) drawCharacterActivation(node, circle);
   }
 
   function drawLockNode(circle, node){
@@ -84,10 +92,12 @@ $(document).ready(function(){
     CANVAS.text(node.x + 13, node.y - 13, node.id).attr({fill: 'grey', 'font-size': 6});
   }
 
-  function drawCharacterActivations(circle, characters){
-    _.each(characters, function(character, index){
-      CANVAS.text(circle.x - 15, circle.y, _.first(character.name))
-            .attr('fill', character.color);
-    });
+  function drawCharacterActivation(node, circle){
+    var charNames = _.map(node.characters, 'name');
+    if(_.contains(charNames, characterName)){
+      var activationCircle = CANVAS.circle(node.x, node.y, 15)
+        .attr({stroke: characterColor, 'stroke-width': 5})
+        .toBack();
+    }
   }
 });
