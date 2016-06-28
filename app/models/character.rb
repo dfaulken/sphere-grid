@@ -27,6 +27,13 @@ class Character < ActiveRecord::Base
     end.to_h
   end
 
+  def toggle_activation(node)
+    if nodes.include? node
+      nodes.delete node
+    else nodes << node
+    end
+  end
+
   private
 
   def base_attributes_correct?

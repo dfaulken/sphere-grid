@@ -12,13 +12,24 @@ body{
     width: 1732px;
     height: 2304px;
   }
+  #node-panel{
+    position: fixed;
+    top: 0;
+    width: 210px;
+    height: 50%;
+  }
   #info-panel{
     border-radius: 6px;
     border-top: 3px solid grey;
     bottom: 0px;
-    height: 250px;
+    font-size: 12px;
+    height: 210px;
     position: fixed;
     width: 100%;
+    li.character-name a{
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+    }
     .character-info{
       background: #c8d3da;
       display: flex;
@@ -26,10 +37,8 @@ body{
         background: white;
         border: 2px solid grey;
         border-radius: 10px;
-        margin: 0.25em;
-        &.abilities{
-          overflow: scroll;
-        }
+        margin: 0 1em 0 0;
+        overflow: scroll;
         .title{
           background: lightgrey;
           border-top-left-radius: inherit;

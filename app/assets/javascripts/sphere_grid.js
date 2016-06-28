@@ -47,7 +47,8 @@ $(document).ready(function(){
   }
 
   function drawNode(node){
-    var circle = CANVAS.circle(node.x, node.y, 13);
+    var circle = CANVAS.circle(node.x, node.y, 13)
+                       .click(function(){ toggleCharacterActivation(node) });
     _.each(node.connections, function(connection){
       drawConnection(node.x, node.y, connection[0], connection[1]);
     });
@@ -100,4 +101,18 @@ $(document).ready(function(){
         .toBack();
     }
   }
+
+  function toggleCharacterActivation(node){
+    $.post('/toggle_node', { character: characterName, id: node.id }, function(){
+      reloadCharacterInfo();
+      initializeSphereGrid();
+    });
+  }
+
+  function reloadCharacterInfo(){
+    $.get('/character_info?character=' + characterName, function(resultHtml){
+      $('.character-info:visible').html(resultHtml);
+    });
+  }
+
 });
