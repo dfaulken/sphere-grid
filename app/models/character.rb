@@ -27,10 +27,14 @@ class Character < ActiveRecord::Base
     end.to_h
   end
 
+  # Returns whether the node is now activated by the character.
   def toggle_activation(node)
     if nodes.include? node
       nodes.delete node
-    else nodes << node
+      return false
+    else
+      nodes << node
+      return true
     end
   end
 

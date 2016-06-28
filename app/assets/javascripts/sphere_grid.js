@@ -56,7 +56,6 @@ $(document).ready(function(){
     else if(node.ability) drawAbilityNode(circle, node);
     else if(node.lock_level) drawLockNode(circle, node);
     else circle.attr({fill: 'silver'}); // empty node
-    // drawNodeId(node);
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
@@ -69,7 +68,7 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
-    if(node.characters) drawCharacterActivation(node, circle);
+    if(characterHasActivated(node)) drawCharacterActivation(node);
   }
 
   function drawAbilityNode(circle, node){
@@ -80,7 +79,7 @@ $(document).ready(function(){
       CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
     }
     else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 6);
-    if(node.characters) drawCharacterActivation(node, circle);
+    if(characterHasActivated(node)) drawCharacterActivation(node);
   }
 
   function drawLockNode(circle, node){
@@ -89,23 +88,30 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y + 5, node.lock_level).attr({fill: 'red', 'font-size': 12});
   }
 
-  function drawNodeId(node){
-    CANVAS.text(node.x + 13, node.y - 13, node.id).attr({fill: 'grey', 'font-size': 6});
+  function characterHasActivated(node){
+    var charNames = _.map(node.characters, 'name');
+    return _.contains(charNames, characterName);
   }
 
-  function drawCharacterActivation(node, circle){
-    var charNames = _.map(node.characters, 'name');
-    if(_.contains(charNames, characterName)){
-      var activationCircle = CANVAS.circle(node.x, node.y, 15)
-        .attr({stroke: characterColor, 'stroke-width': 5})
-        .toBack();
-    }
+  function drawCharacterActivation(node){
+    CANVAS.circle(node.x, node.y, 15)
+      .attr({stroke: characterColor, 'stroke-width': 5})
+      .toBack();
+  }
+
+  function removeCharacterActivation(node){
+    var matchingElements = CANVAS.getElementsByPoint(node.x, node.y + 14);
+    var activationCircle = _.find(matchingElements, function(element){
+      return element.type == 'circle' 
+    });
+    activationCircle.remove();
   }
 
   function toggleCharacterActivation(node){
-    $.post('/toggle_node', { character: characterName, id: node.id }, function(){
+    $.post('/toggle_node', { character: characterName, id: node.id }, function(response){
       reloadCharacterInfo();
-      initializeSphereGrid();
+      if(response.activated) drawCharacterActivation(node);
+      else removeCharacterActivation(node);
     });
   }
 

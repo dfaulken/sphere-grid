@@ -15,8 +15,8 @@ class SphereGridController < ApplicationController
   def toggle_node
     node = Node.find_by id: params.require(:id)
     character = Character.find_by name: params.require(:character)
-    character.toggle_activation node
-    render nothing: true, status: :ok
+    activated = character.toggle_activation node
+    render json: { activated: activated }, status: :ok
   end
 
 end
