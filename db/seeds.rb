@@ -1,7 +1,7 @@
 # CHARACTER STATS
 Character.create! name: 'Tidus', color: '#81cbf4', base_attributes: {
   'HP' => 520, 'MP' => 12,
-  'Strength' => 15, 'Defense' => 5, 'Magic' => 5, 'Magic Defense' => 5,
+  'Strength' => 15, 'Defense' => 10, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
 }
 Character.create! name: 'Wakka', color: '#dfc288', base_attributes: {
