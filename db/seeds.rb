@@ -4,7 +4,7 @@ Character.create! name: 'Tidus', color: '#81cbf4', base_attributes: {
   'Strength' => 15, 'Defense' => 10, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
 }
-Character.create! name: 'Wakka', color: '#dfc288', base_attributes: {
+Character.create! name: 'Wakka', color: '#ecb45b', base_attributes: {
   'HP' => 618, 'MP' => 10,
   'Strength' => 14, 'Defense' => 10, 'Magic' => 10, 'Magic Defense' => 5,
   'Agility' => 7, 'Luck' => 19, 'Evasion' => 5, 'Accuracy' => 25
@@ -734,7 +734,7 @@ Node.create! x: 210, y: 1202, attribute_name: 'Evasion', value: 1, connections: 
 Node.create! x: 282, y: 1202, connections: [node(638)]
 Ability.create! name: 'Sleep Attack', node: Node.find(639), ability_type: 'Skill', number: 3
 Node.create! x: 256, y: 1174, attribute_name: 'MP', value: 20, connections: [node(639)]
-Node.create! x: 310, y: 1174, connections: [node(640)]
+Node.create! x: 310, y: 1174, attribute_name: 'Strength', value: 4, connections: [node(640)]
 Node.create! x: 310, y: 1228, attribute_name: 'Accuracy', value: 3, connections: [node(641)]
 Node.create! x: 256, y: 1228, attribute_name: 'Defense', value: 3, connections: [node(642)]
 Node.create! x: 230, y: 1254, connections: [node(643)]
