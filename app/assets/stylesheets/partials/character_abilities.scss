@@ -1,5 +1,6 @@
 .character-abilities{
   display: flex;
+  overflow: scroll;
   .ability-type{
     height: 100%;
     overflow: hidden;

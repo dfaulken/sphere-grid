@@ -27,12 +27,11 @@ ATTRIBUTE_COLORS = {
 $(document).ready(function(){
   CANVAS = Raphael('sphere-grid', '100%', '100%');
 
+  var activations = [];
   var characterName = 'Tidus';
   var characterColor = 'blue';
 
-  $('#character-tabs').tabs({
-    heightStyle: 'fill'
-  });
+  $('#character-tabs').tabs({ heightStyle: 'fill' });
   initializeSphereGrid();
 
   $('#info-panel').on('click', '.character-name', initializeSphereGrid);
@@ -40,6 +39,8 @@ $(document).ready(function(){
   function initializeSphereGrid(){
     characterName = $('li.character-name.ui-state-active:eq(0)').data('name');
     characterColor = $('li.character-name.ui-state-active:eq(0)').data('color');
+    _.each(activations, function(circle){ circle.remove(); });
+    activations = [];
     $.get('/node_data', function(nodes){
       CANVAS.clear();
       _.each(nodes, drawNode);
@@ -48,14 +49,13 @@ $(document).ready(function(){
 
   function drawNode(node){
     var circle = CANVAS.circle(node.x, node.y, 13)
-                       .click(function(){ toggleCharacterActivation(node) });
     _.each(node.connections, function(connection){
       drawConnection(node.x, node.y, connection[0], connection[1]);
     });
     if(node.attribute_name) drawStatNode(circle, node);
     else if(node.ability) drawAbilityNode(circle, node);
     else if(node.lock_level) drawLockNode(circle, node);
-    else circle.attr({fill: 'silver'}); // empty node
+    else drawEmptyNode(circle, node);
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
@@ -63,8 +63,13 @@ $(document).ready(function(){
     CANVAS.path(pathString).attr('stroke-width', 2).toBack();
   }
 
+  function drawEmptyNode(circle, node){
+    circle.attr({fill: 'silver'});
+  }
+
   function drawStatNode(circle, node){
-    circle.attr({fill: ATTRIBUTE_COLORS[node.attribute_name]});
+    circle.attr({fill: ATTRIBUTE_COLORS[node.attribute_name]})
+          .click(function(){ toggleCharacterActivation(node) });
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
@@ -72,7 +77,8 @@ $(document).ready(function(){
   }
 
   function drawAbilityNode(circle, node){
-    circle.attr({fill: 'palevioletred', title: node.ability.name});
+    circle.attr({fill: 'palevioletred', title: node.ability.name})
+          .click(function(){ toggleCharacterActivation(node) });
     if(_.contains(node.ability.name, ' ')){
       var abilityWords = node.ability.name.split(' ');
       CANVAS.text(node.x, node.y - 4, abilityWords[0]).attr('font-size', 6);
@@ -94,9 +100,10 @@ $(document).ready(function(){
   }
 
   function drawCharacterActivation(node){
-    CANVAS.circle(node.x, node.y, 15)
+    var activation = CANVAS.circle(node.x, node.y, 15)
       .attr({stroke: characterColor, 'stroke-width': 5})
       .toBack();
+    activations.push(activation);
   }
 
   function removeCharacterActivation(node){
@@ -104,9 +111,9 @@ $(document).ready(function(){
     var activationCircle = _.find(matchingElements, function(element){
       return element.type == 'circle' 
     });
-    activationCircle.remove();
+    if(activationCircle !== undefined) activationCircle.remove();
   }
-
+ 
   function toggleCharacterActivation(node){
     $.post('/toggle_node', { character: characterName, id: node.id }, function(response){
       reloadCharacterInfo();
@@ -120,5 +127,4 @@ $(document).ready(function(){
       $('.character-info:visible').html(resultHtml);
     });
   }
-
 });
