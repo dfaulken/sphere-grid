@@ -7,4 +7,6 @@ class Ability < ActiveRecord::Base
   validates :number, uniqueness: { scope: :ability_type }
 
   default_scope -> { order :number }
+
+  scope :of_type, -> (type) { where ability_type: type }
 end

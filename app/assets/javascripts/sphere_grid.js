@@ -52,9 +52,9 @@ $(document).ready(function(){
     _.each(node.connections, function(connection){
       drawConnection(node.x, node.y, connection[0], connection[1]);
     });
-    if(node.attribute_name) drawStatNode(circle, node);
-    else if(node.ability) drawAbilityNode(circle, node);
-    else if(node.lock_level) drawLockNode(circle, node);
+    if (node.attribute_name) drawStatNode(circle, node);
+    else if (node.ability) drawAbilityNode(circle, node);
+    else if (node.lock_level) drawLockNode(circle, node);
     else drawEmptyNode(circle, node);
   }
 
@@ -73,19 +73,19 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
-    if(characterHasActivated(node)) drawCharacterActivation(node);
+    if (characterHasActivated(node)) drawCharacterActivation(node);
   }
 
   function drawAbilityNode(circle, node){
     circle.attr({fill: 'palevioletred', title: node.ability.name})
           .click(function(){ toggleCharacterActivation(node) });
-    if(_.contains(node.ability.name, ' ')){
+    if (_.contains(node.ability.name, ' ')){
       var abilityWords = node.ability.name.split(' ');
       CANVAS.text(node.x, node.y - 4, abilityWords[0]).attr('font-size', 6);
       CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
     }
     else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 6);
-    if(characterHasActivated(node)) drawCharacterActivation(node);
+    if (characterHasActivated(node)) drawCharacterActivation(node);
   }
 
   function drawLockNode(circle, node){
@@ -111,13 +111,13 @@ $(document).ready(function(){
     var activationCircle = _.find(matchingElements, function(element){
       return element.type == 'circle' 
     });
-    if(activationCircle !== undefined) activationCircle.remove();
+    if (activationCircle !== undefined) activationCircle.remove();
   }
  
   function toggleCharacterActivation(node){
     $.post('/toggle_node', { character: characterName, id: node.id }, function(response){
       reloadCharacterInfo();
-      if(response.activated) drawCharacterActivation(node);
+      if (response.activated) drawCharacterActivation(node);
       else removeCharacterActivation(node);
     });
   }
