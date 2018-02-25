@@ -904,7 +904,7 @@ Node.create! x: 1028, y: 1020, connections: [node(89)]
 Ability.create! name: 'Steal', node: Node.find(783), ability_type: 'Special', number: 2
 Node.create! x: 966, y: 1020, lock_level: 1, connections: [node(783), node(749)]
 Node.create! x: 930, y: 1020, attribute_name: 'Magic', value: 2, connections: [node(784)]
-Node.create! x: 910, y: 1072, connections: [node(785)]
+Node.create! x: 910, y: 1072, connections: [node(785), node(749)]
 Ability.create! name: 'Extract Ability', node: Node.find(786), ability_type: 'Skill', number: 14
 Node.create! x: 894, y: 1020, connections: [node(785)]
 Ability.create! name: 'Scan', node: Node.find(787), ability_type: 'White Magic', number: 4
