@@ -44,7 +44,7 @@ class Character < ActiveRecord::Base
     unless base_attributes.keys == ATTRIBUTE_NAMES
       errors.add :base_attributes, 'has incorrect keys'
     end
-    unless base_attributes.values.all?{|v| v.is_a? Fixnum }
+    unless base_attributes.values.all?{|v| v.is_a? Integer }
       errors.add :base_attributes, 'must have Integer values'
     end
   end
