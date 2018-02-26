@@ -28,13 +28,21 @@ $(document).ready(function(){
   CANVAS = Raphael('sphere-grid', '100%', '100%');
 
   var activations = [];
+  var allCharacters = [];
   var characterName = 'Tidus';
   var characterColor = 'blue';
 
   $('#character-tabs').tabs({ heightStyle: 'fill' });
   initializeSphereGrid();
+  applyCharacterBadgeColors();
 
   $('#info-panel').on('click', '.character-name', initializeSphereGrid);
+
+  function applyCharacterBadgeColors(){
+    $('.char-badges li').hide().each(function(){
+      $(this).css('background-color', $(this).data('color'));
+    });
+  }
 
   function initializeSphereGrid(){
     characterName = $('li.character-name.ui-state-active:eq(0)').data('name');
@@ -52,10 +60,17 @@ $(document).ready(function(){
     _.each(node.connections, function(connection){
       drawConnection(node.x, node.y, connection[0], connection[1]);
     });
+    recordCharacters(node.characters);
     if (node.attribute_name) drawStatNode(circle, node);
     else if (node.ability) drawAbilityNode(circle, node);
     else if (node.lock_level) drawLockNode(circle, node);
     else drawEmptyNode(circle, node);
+  }
+
+  function recordCharacters(characters){
+    if (characters !== undefined) {
+      allCharacters = _.uniq(allCharacters.concat(characters));
+    }
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
@@ -75,7 +90,7 @@ $(document).ready(function(){
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
-    if (characterHasActivated(node)) drawCharacterActivation(node);
+    if (characterHasActivated(node)) addCharacterActivation(node);
   }
 
   function drawAbilityNode(circle, node){
@@ -88,7 +103,7 @@ $(document).ready(function(){
       CANVAS.text(node.x, node.y + 4, abilityWords[1]).attr('font-size', 6);
     }
     else CANVAS.text(node.x, node.y, node.ability.name).attr('font-size', 6);
-    if (characterHasActivated(node)) drawCharacterActivation(node);
+    if (characterHasActivated(node)) addCharacterActivation(node);
   }
 
   function drawLockNode(circle, node){
@@ -103,11 +118,15 @@ $(document).ready(function(){
     return _.contains(charNames, characterName);
   }
 
-  function drawCharacterActivation(node){
+  function addCharacterActivation(node){
     var activation = CANVAS.circle(node.x, node.y, 15)
       .attr({stroke: characterColor, 'stroke-width': 5})
       .toBack();
     activations.push(activation);
+    var newCharacter = _.find(allCharacters, function(character){
+      return character.name == characterName;
+    })
+    node.characters = _.uniq(node.characters.concat(newCharacter));
   }
 
   function removeCharacterActivation(node){
@@ -116,13 +135,18 @@ $(document).ready(function(){
       return element.type == 'circle' 
     });
     if (activationCircle !== undefined) activationCircle.remove();
+    var character = _.find(node.characters, function(character){
+      return character.name == characterName;
+    })
+    node.characters = _.without(node.characters, character);
   }
  
   function toggleCharacterActivation(node){
     $.post('/toggle_node', { character: characterName, id: node.id }, function(response){
       reloadCharacterInfo();
-      if (response.activated) drawCharacterActivation(node);
+      if (response.activated) addCharacterActivation(node);
       else removeCharacterActivation(node);
+      showNodePanel(node);
     });
   }
 
@@ -143,5 +167,9 @@ $(document).ready(function(){
     if (node.ability) abilityName = node.ability.name;
     panel.find('.node-attrs#ability').text(abilityName || '');
     panel.find('.node-attrs#lock_level').text(node.lock_level || '');
+    $('.char-badges li').hide().filter(function(){
+      var charNames = _.map(node.characters, 'name');
+      return _.contains(charNames, $(this).data('name'));
+    }).show();
   }
 });

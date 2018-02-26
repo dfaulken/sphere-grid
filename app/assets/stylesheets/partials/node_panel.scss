@@ -7,4 +7,17 @@
   position: fixed;
   top: 0;
   width: 10em;
+
+  .char-badges{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    li{
+      border: 2px solid grey;
+      border-radius: 6px;
+      list-style-type: none;
+      margin: 3px;
+      padding: 3px;
+    }
+  }
 }

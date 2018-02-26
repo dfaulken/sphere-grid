@@ -19,3 +19,8 @@
 %p
   %b Lock level:
   %span.node-attrs#lock-level
+%p
+  %b Activated by:
+.char-badges
+  - @characters.each do |character|
+    %li{ data: { name: character.name, color: character.color } }= character.name
