@@ -20,9 +20,13 @@ Regen Holy Auto-Life],
   'Black Magic' => %w[Fire Blizzard Thunder Water Fira Blizzara Thundara Watera
 Firaga Blizzaga Thundaga Waterga Bio Demi Death Drain Osmose Flare Ultima]
 }.each_pair do |type, names|
-  names.each.with_index 1 do |name, number|
-    Ability.create! name: name, ability_type: type, sequence_number: number
+  names.each.with_index do |name, number|
+    Ability.create! name: name, ability_type: type, sequence_number: number rescue binding.pry
   end
+end
+
+def ability(name)
+  Ability.find_by name: name
 end
 
 DefaultCharacterAbility.create! character: tidus,   ability: ability('Cheer')
@@ -39,25 +43,25 @@ DefaultCharacterAbility.create! character: rikku,   ability: ability('Steal')
 DefaultCharacterAbility.create! character: rikku,   ability: ability('Use')
 
 hp =   Attribute.create! name: 'HP', abbreviation: 'HP', color: '#ade6b0',
-                         permitted_values: [200, 300], sequence_number: 1
+                         permitted_values: [200, 300], sequence_number: 0
 mp =   Attribute.create! name: 'MP', abbreviation: 'MP', color: '#ade6b0',
-                         permitted_values: [20, 30, 40], sequence_number: 2
+                         permitted_values: [10, 20, 30, 40], sequence_number: 1
 str =  Attribute.create! name: 'Strength', abbreviation: 'STR', color: '#e6adad',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 3
+                         permitted_values: [1, 2, 3, 4], sequence_number: 2
 dfn =  Attribute.create! name: 'Defense', abbreviation: 'DEF', color: '#adcbe6',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 4
+                         permitted_values: [1, 2, 3, 4], sequence_number: 3
 mag =  Attribute.create! name: 'Magic', abbreviation: 'MAG', color: '#e1ade6',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 5
+                         permitted_values: [1, 2, 3, 4], sequence_number: 4
 mdef = Attribute.create! name: 'Magic Defense', abbreviation: 'MDef', color: '#b9ade6',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 6
+                         permitted_values: [1, 2, 3, 4], sequence_number: 5
 agl =  Attribute.create! name: 'Agility', abbreviation: 'AGL', color: '#e6c9ad',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 7
+                         permitted_values: [1, 2, 3, 4], sequence_number: 6
 luck = Attribute.create! name: 'Luck', abbreviation: 'Luck', color: '#e6daad',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 8
+                         permitted_values: [1, 2, 3, 4], sequence_number: 7
 eva =  Attribute.create! name: 'Evasion', abbreviation: 'EVA', color: '#b2e6ad',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 9
+                         permitted_values: [1, 2, 3, 4], sequence_number: 8
 acc =  Attribute.create! name: 'Accuracy', abbreviation: 'ACC', color: '#e6adc7',
-                         permitted_values: [1, 2, 3, 4], sequence_number: 10
+                         permitted_values: [1, 2, 3, 4], sequence_number: 9
 
 { tidus =>   [ 520, 12, 15, 10,  5,  5, 10, 18, 10, 10],
   wakka =>   [ 618, 10, 14, 10, 10,  5,  7, 19, 5,  25],
@@ -67,16 +71,13 @@ acc =  Attribute.create! name: 'Accuracy', abbreviation: 'ACC', color: '#e6adc7'
   auron =>   [1030, 33, 20, 15,  5,  5,  5, 17,  5,  3],
   rikku =>   [ 360, 85, 10,  8, 10,  8, 16, 18,  5,  5]
 }.each_pair do |character, values|
-  attributes.each.with_index 1 do |value, index|
+  values.each.with_index do |value, index|
     attribute = Attribute.find_by sequence_number: index
-    CharacterAttribute.create! character: character, attribute: attribute,
-                               value: value
+    CharacterAttribute.create! character: character, attr: attribute,
+                               default_value: value
   end
 end
 
-def ability(name)
-  Ability.find_by name: name
-end
 
 def loc(loc_id)
   l = NodeLocation.find loc_id

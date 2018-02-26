@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180226144718) do
 
   create_table "abilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "ability_type"
+    t.string "ability_type"
     t.integer "sequence_number"
   end
 

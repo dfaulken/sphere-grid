@@ -1,6 +1,6 @@
 class DefaultCharacterAbility < ApplicationRecord
-  belongs_to :character
-  belongs_to :ability
+  belongs_to :character, required: true
+  belongs_to :ability, required: true
 
   def self.create_activations_for(user)
     all.each do |char_abl|

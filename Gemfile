@@ -13,6 +13,10 @@ gem 'raphael-rails'
 gem 'sass-rails'
 gem 'underscore-rails'
 
+group :development do
+  gem 'pry-byebug'
+end
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
 end

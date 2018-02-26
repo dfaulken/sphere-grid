@@ -1,5 +1,4 @@
 class CharacterAttribute < ApplicationRecord
   belongs_to :character
-  belongs_to :attribute
-  validates :default_value, presence: true, inclusion: { in: -> { attribute.permitted_values } }
+  belongs_to :attr, class_name: 'Attribute', foreign_key: :attribute_id
 end
