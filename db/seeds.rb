@@ -11,7 +11,7 @@ Zombie\ Attack Dark\ Buster Silence\ Buster Sleep\ Buster Delay\ Buster
 Triple\ Foul Extract\ Power Extract\ Mana Extract\ Speed Extract\ Ability
 Power\ Break Magic\ Break Armor\ Break Mental\ Break Full\ Break Mug Nab\ Gil
 Quick\ Hit],
-  'Special' => %w[Flee Steal User Pray Cheer Aim Focus Reflex Luck Jinx Lancet
+  'Special' => %w[Flee Steal Use Pray Cheer Aim Focus Reflex Luck Jinx Lancet
 Guard Sentinel Spare\ Change Threaten Provoke Entrust Copycat Pilfer\ Gil
 Quick\ Pockets Doublecast Bribe],
   'White Magic' => %w[Cure Cura Curaga Scan NulBlaze NulShock NulTide NulFrost
@@ -24,6 +24,19 @@ Firaga Blizzaga Thundaga Waterga Bio Demi Death Drain Osmose Flare Ultima]
     Ability.create! name: name, ability_type: type, sequence_number: number
   end
 end
+
+DefaultCharacterAbility.create! character: tidus,   ability: ability('Cheer')
+DefaultCharacterAbility.create! character: wakka,   ability: ability('Dark Attack')
+DefaultCharacterAbility.create! character: yuna,    ability: ability('Cure')
+DefaultCharacterAbility.create! character: yuna,    ability: ability('Esuna')
+DefaultCharacterAbility.create! character: lulu,    ability: ability('Fire')
+DefaultCharacterAbility.create! character: lulu,    ability: ability('Blizzard')
+DefaultCharacterAbility.create! character: lulu,    ability: ability('Thunder')
+DefaultCharacterAbility.create! character: lulu,    ability: ability('Water')
+DefaultCharacterAbility.create! character: kimahri, ability: ability('Lancet')
+DefaultCharacterAbility.create! character: auron,   ability: ability('Power Break')
+DefaultCharacterAbility.create! character: rikku,   ability: ability('Steal')
+DefaultCharacterAbility.create! character: rikku,   ability: ability('Use')
 
 hp =   Attribute.create! name: 'HP', abbreviation: 'HP', color: '#ade6b0',
                          permitted_values: [200, 300], sequence_number: 1
