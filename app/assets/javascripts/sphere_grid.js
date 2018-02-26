@@ -65,13 +65,13 @@ $(document).ready(function(){
 
   function drawEmptyNode(circle, node){
     circle.attr({fill: 'silver'})
-          .dblclick(function(){ showNodePanel(node) });
+          .mouseover(function(){ showNodePanel(node); });
   }
 
   function drawStatNode(circle, node){
     circle.attr({fill: ATTRIBUTE_COLORS[node.attribute_name]}).data(node)
-          .click(function(){ toggleCharacterActivation(node) })
-          .dblclick(function(){ showNodePanel(node) });
+          .click(function(){ toggleCharacterActivation(node); })
+          .mouseover(function(){ showNodePanel(node); });
     CANVAS.text(node.x, node.y - 4, ATTRIBUTE_ABBREVIATIONS[node.attribute_name]).attr('font-size', 8);
     var valueFontSize = node.attribute_name == 'HP' ? 10 : 12;
     CANVAS.text(node.x, node.y + 5, node.value).attr('font-size', valueFontSize);
@@ -81,7 +81,7 @@ $(document).ready(function(){
   function drawAbilityNode(circle, node){
     circle.attr({fill: 'palevioletred', title: node.ability.name}).data(node)
           .click(function(){ toggleCharacterActivation(node) })
-          .dblclick(function(){ showNodePanel(node) });
+          .mouseover(function(){ showNodePanel(node); });
     if (_.contains(node.ability.name, ' ')){
       var abilityWords = node.ability.name.split(' ');
       CANVAS.text(node.x, node.y - 4, abilityWords[0]).attr('font-size', 6);
@@ -92,7 +92,8 @@ $(document).ready(function(){
   }
 
   function drawLockNode(circle, node){
-    circle.attr({fill: 'black'});
+    circle.attr({fill: 'black'})
+          .mouseover(function(){ showNodePanel(node); });
     CANVAS.text(node.x, node.y - 5, 'LV.').attr({fill: 'red', 'font-size': 8});
     CANVAS.text(node.x, node.y + 5, node.lock_level).attr({fill: 'red', 'font-size': 12});
   }
@@ -136,17 +137,11 @@ $(document).ready(function(){
     panel.find('.node-attrs#id').text(node.id);
     panel.find('.node-attrs#x').text(node.x);
     panel.find('.node-attrs#y').text(node.y);
-    var nodeAttr;
-    if(node.attribute_name) nodeAttr = node.attribute_name;
-    panel.find('.node-attrs#attribute').text(node.attribute_name);
-    var nodeValue;
-    if(node.value) nodeValue = node.value;
-    panel.find('.node-attrs#value').text(nodeValue);
+    panel.find('.node-attrs#attribute').text(node.attribute_name || '');
+    panel.find('.node-attrs#value').text(node.value || '');
     var abilityName;
     if (node.ability) abilityName = node.ability.name;
-    panel.find('.node-attrs#ability').text(abilityName);
-    var lockLevel;
-    if (node.lock_level) lockLevel = node.lock_level
-    panel.find('.node-attrs#lock_level').text(lockLevel);
+    panel.find('.node-attrs#ability').text(abilityName || '');
+    panel.find('.node-attrs#lock_level').text(node.lock_level || '');
   }
 });
