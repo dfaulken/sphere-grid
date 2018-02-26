@@ -1,35 +1,61 @@
-# CHARACTER STATS
-tidus = Character.create! name: 'Tidus', color: '#81cbf4', base_attributes: {
+tidus =   Character.create! name: 'Tidus', color: '#81cbf4'
+wakka =   Character.create! name: 'Wakka', color: '#ecb45b'
+yuna =    Character.create! name: 'Yuna', color: '#b8baea'
+lulu =    Character.create! name: 'Lulu', color: '#e994fb'
+kimahri = Character.create! name: 'Kimahri', color: '#667fd4'
+auron =   Character.create! name: 'Auron', color: '#bf7a7b'
+rikku =   Character.create! name: 'Rikku', color: '#49ab4c'
+
+{ 'Skill' => %w[Dark\ Attack Silence\ Attack Sleep\ Attack Delay\ Attack
+Zombie\ Attack Dark\ Buster Silence\ Buster Sleep\ Buster Delay\ Buster
+Triple\ Foul Extract\ Power Extract\ Mana Extract\ Speed Extract\ Ability
+Power\ Break Magic\ Break Armor\ Break Mental\ Break Full\ Break Mug Nab\ Gil
+Quick\ Hit],
+  'Special' => %w[Flee Steal User Pray Cheer Aim Focus Reflex Luck Jinx Lancet
+Guard Sentinel Spare\ Change Threaten Provoke Entrust Copycat Pilfer\ Gil
+Quick\ Pockets Doublecast Bribe],
+  'White Magic' => %w[Cure Cura Curaga Scan NulBlaze NulShock NulTide NulFrost
+Esuna Life Full-Life Haste Hastega Slow Slowga Shell Protect Reflect Dispel
+Regen Holy Auto-Life],
+  'Black Magic' => %w[Fire Blizzard Thunder Water Fira Blizzara Thundara Watera
+Firaga Blizzaga Thundaga Waterga Bio Demi Death Drain Osmose Flare Ultima]
+}.each_pair do |type, names|
+  names.each.with_index 1 do |name, number|
+    Ability.create! name: name, ability_type: type, number: number
+  end
+end
+
+base_attributes: {
   'HP' => 520, 'MP' => 12,
   'Strength' => 15, 'Defense' => 10, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
 }
-wakka = Character.create! name: 'Wakka', color: '#ecb45b', base_attributes: {
+base_attributes: {
   'HP' => 618, 'MP' => 10,
   'Strength' => 14, 'Defense' => 10, 'Magic' => 10, 'Magic Defense' => 5,
   'Agility' => 7, 'Luck' => 19, 'Evasion' => 5, 'Accuracy' => 25
 }
-yuna = Character.create! name: 'Yuna', color: '#b8baea', base_attributes: {
+base_attributes: {
   'HP' => 475, 'MP' => 84,
   'Strength' => 5, 'Defense' => 5, 'Magic' => 20, 'Magic Defense' => 20,
   'Agility' => 10, 'Luck' => 17, 'Evasion' => 30, 'Accuracy' => 3
 }
-lulu = Character.create! name: 'Lulu', color: '#e994fb', base_attributes: {
+base_attributes: {
   'HP' => 380, 'MP' => 92,
   'Strength' => 5, 'Defense' => 8, 'Magic' => 20, 'Magic Defense' => 30,
   'Agility' => 5, 'Luck' => 17, 'Evasion' => 40, 'Accuracy' => 3
 }
-kimahri = Character.create! name: 'Kimahri', color: '#667fd4', base_attributes: {
+base_attributes: {
   'HP' => 644, 'MP' => 78,
   'Strength' => 16, 'Defense' => 15, 'Magic' => 17, 'Magic Defense' => 5,
   'Agility' => 6, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
 }
-auron = Character.create! name: 'Auron', color: '#bf7a7b', base_attributes: {
+base_attributes: {
   'HP' => 1030, 'MP' => 33,
   'Strength' => 20, 'Defense' => 15, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 5, 'Luck' => 17, 'Evasion' => 5, 'Accuracy' => 3
 }
-rikku = Character.create! name: 'Rikku', color: '#49ab4c', base_attributes: {
+base_attributes: {
   'HP' => 360, 'MP' => 85,
   'Strength' => 10, 'Defense' => 8, 'Magic' => 10, 'Magic Defense' => 8,
   'Agility' => 16, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
