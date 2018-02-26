@@ -1,10 +1,10 @@
-tidus =   Character.create! name: 'Tidus', color: '#81cbf4'
-wakka =   Character.create! name: 'Wakka', color: '#ecb45b'
-yuna =    Character.create! name: 'Yuna', color: '#b8baea'
-lulu =    Character.create! name: 'Lulu', color: '#e994fb'
+tidus =   Character.create! name: 'Tidus',   color: '#81cbf4'
+wakka =   Character.create! name: 'Wakka',   color: '#ecb45b'
+yuna =    Character.create! name: 'Yuna',    color: '#b8baea'
+lulu =    Character.create! name: 'Lulu',    color: '#e994fb'
 kimahri = Character.create! name: 'Kimahri', color: '#667fd4'
-auron =   Character.create! name: 'Auron', color: '#bf7a7b'
-rikku =   Character.create! name: 'Rikku', color: '#49ab4c'
+auron =   Character.create! name: 'Auron',   color: '#bf7a7b'
+rikku =   Character.create! name: 'Rikku',   color: '#49ab4c'
 
 { 'Skill' => %w[Dark\ Attack Silence\ Attack Sleep\ Attack Delay\ Attack
 Zombie\ Attack Dark\ Buster Silence\ Buster Sleep\ Buster Delay\ Buster
@@ -21,45 +21,46 @@ Regen Holy Auto-Life],
 Firaga Blizzaga Thundaga Waterga Bio Demi Death Drain Osmose Flare Ultima]
 }.each_pair do |type, names|
   names.each.with_index 1 do |name, number|
-    Ability.create! name: name, ability_type: type, number: number
+    Ability.create! name: name, ability_type: type, sequence_number: number
   end
 end
 
-base_attributes: {
-  'HP' => 520, 'MP' => 12,
-  'Strength' => 15, 'Defense' => 10, 'Magic' => 5, 'Magic Defense' => 5,
-  'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
-}
-base_attributes: {
-  'HP' => 618, 'MP' => 10,
-  'Strength' => 14, 'Defense' => 10, 'Magic' => 10, 'Magic Defense' => 5,
-  'Agility' => 7, 'Luck' => 19, 'Evasion' => 5, 'Accuracy' => 25
-}
-base_attributes: {
-  'HP' => 475, 'MP' => 84,
-  'Strength' => 5, 'Defense' => 5, 'Magic' => 20, 'Magic Defense' => 20,
-  'Agility' => 10, 'Luck' => 17, 'Evasion' => 30, 'Accuracy' => 3
-}
-base_attributes: {
-  'HP' => 380, 'MP' => 92,
-  'Strength' => 5, 'Defense' => 8, 'Magic' => 20, 'Magic Defense' => 30,
-  'Agility' => 5, 'Luck' => 17, 'Evasion' => 40, 'Accuracy' => 3
-}
-base_attributes: {
-  'HP' => 644, 'MP' => 78,
-  'Strength' => 16, 'Defense' => 15, 'Magic' => 17, 'Magic Defense' => 5,
-  'Agility' => 6, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
-}
-base_attributes: {
-  'HP' => 1030, 'MP' => 33,
-  'Strength' => 20, 'Defense' => 15, 'Magic' => 5, 'Magic Defense' => 5,
-  'Agility' => 5, 'Luck' => 17, 'Evasion' => 5, 'Accuracy' => 3
-}
-base_attributes: {
-  'HP' => 360, 'MP' => 85,
-  'Strength' => 10, 'Defense' => 8, 'Magic' => 10, 'Magic Defense' => 8,
-  'Agility' => 16, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
-}
+hp = Attribute.create! name: 'HP',              abbreviation: 'HP',  
+                       color: '#ade6b0', sequence_number: 1
+mp = Attribute.create! name: 'MP',              abbreviation: 'MP',  
+                       color: '#ade6b0', sequence_number: 2
+str = Attribute.create! name: 'Strength',       abbreviation: 'STR', 
+                       color: '#e6adad', sequence_number: 3
+dfn = Attribute.create! name: 'Defense',        abbreviation: 'DEF', 
+                       color: '#adcbe6', sequence_number: 4
+mag = Attribute.create! name: 'Magic',          abbreviation: 'MAG', 
+                       color: '#e1ade6', sequence_number: 5
+mdef = Attribute.create! name: 'Magic Defense', abbreviation: 'MDef',
+                       color: '#b9ade6', sequence_number: 6
+agl = Attribute.create! name: 'Agility',        abbreviation: 'AGL', 
+                       color: '#e6c9ad', sequence_number: 7
+luck = Attribute.create! name: 'Luck',          abbreviation: 'Luck',
+                       color: '#e6daad', sequence_number: 8
+eva = Attribute.create! name: 'Evasion',        abbreviation: 'EVA', 
+                       color: '#b2e6ad', sequence_number: 9
+acc = Attribute.create! name: 'Accuracy',       abbreviation: 'ACC', 
+                       color: '#e6adc7', sequence_number: 10
+
+{ tidus =>   [ 520, 12, 15, 10,  5,  5, 10, 18, 10, 10],
+  wakka =>   [ 618, 10, 14, 10, 10,  5,  7, 19, 5,  25],
+  yuna  =>   [ 475, 84,  5,  5, 20, 20, 10, 17, 30,  3],
+  lulu  =>   [ 380, 92,  5,  8, 20, 30,  5, 17, 40,  3],
+  kimahri => [ 644, 78, 16, 15, 17,  5,  6, 18,  5,  5],
+  auron =>   [1030, 33, 20, 15,  5,  5,  5, 17,  5,  3],
+  rikku =>   [ 360, 85, 10,  8, 10,  8, 16, 18,  5,  5]
+}.each_pair do |character, values|
+  attributes.each.with_index 1 do |value, index|
+    attribute = Attribute.find_by sequence_number: index
+    CharacterAttribute.create! character: character, attribute: attribute,
+                               value: value
+  end
+end
+
 
 def node(node_id)
   n = Node.find node_id
