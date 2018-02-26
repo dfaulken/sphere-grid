@@ -1,35 +1,35 @@
 # CHARACTER STATS
-Character.create! name: 'Tidus', color: '#81cbf4', base_attributes: {
+tidus = Character.create! name: 'Tidus', color: '#81cbf4', base_attributes: {
   'HP' => 520, 'MP' => 12,
   'Strength' => 15, 'Defense' => 10, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 10, 'Luck' => 18, 'Evasion' => 10, 'Accuracy' => 10
 }
-Character.create! name: 'Wakka', color: '#ecb45b', base_attributes: {
+wakka = Character.create! name: 'Wakka', color: '#ecb45b', base_attributes: {
   'HP' => 618, 'MP' => 10,
   'Strength' => 14, 'Defense' => 10, 'Magic' => 10, 'Magic Defense' => 5,
   'Agility' => 7, 'Luck' => 19, 'Evasion' => 5, 'Accuracy' => 25
 }
-Character.create! name: 'Yuna', color: '#b8baea', base_attributes: {
+yuna = Character.create! name: 'Yuna', color: '#b8baea', base_attributes: {
   'HP' => 475, 'MP' => 84,
   'Strength' => 5, 'Defense' => 5, 'Magic' => 20, 'Magic Defense' => 20,
   'Agility' => 10, 'Luck' => 17, 'Evasion' => 30, 'Accuracy' => 3
 }
-Character.create! name: 'Lulu', color: '#e994fb', base_attributes: {
+lulu = Character.create! name: 'Lulu', color: '#e994fb', base_attributes: {
   'HP' => 380, 'MP' => 92,
   'Strength' => 5, 'Defense' => 8, 'Magic' => 20, 'Magic Defense' => 30,
   'Agility' => 5, 'Luck' => 17, 'Evasion' => 40, 'Accuracy' => 3
 }
-Character.create! name: 'Kimahri', color: '#667fd4', base_attributes: {
+kimahri = Character.create! name: 'Kimahri', color: '#667fd4', base_attributes: {
   'HP' => 644, 'MP' => 78,
   'Strength' => 16, 'Defense' => 15, 'Magic' => 17, 'Magic Defense' => 5,
   'Agility' => 6, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
 }
-Character.create! name: 'Auron', color: '#bf7a7b', base_attributes: {
+auron = Character.create! name: 'Auron', color: '#bf7a7b', base_attributes: {
   'HP' => 1030, 'MP' => 33,
   'Strength' => 20, 'Defense' => 15, 'Magic' => 5, 'Magic Defense' => 5,
   'Agility' => 5, 'Luck' => 17, 'Evasion' => 5, 'Accuracy' => 3
 }
-Character.create! name: 'Rikku', color: '#49ab4c', base_attributes: {
+rikku = Character.create! name: 'Rikku', color: '#49ab4c', base_attributes: {
   'HP' => 360, 'MP' => 85,
   'Strength' => 10, 'Defense' => 8, 'Magic' => 10, 'Magic Defense' => 8,
   'Agility' => 16, 'Luck' => 18, 'Evasion' => 5, 'Accuracy' => 5
@@ -41,7 +41,7 @@ def node(node_id)
 end
 
 Node.create! x: 858, y: 914
-Node.create! x: 858, y: 818, connections: [node(1)]
+Node.create! x: 858, y: 818, connections: [node(1)], characters: [tidus]
 Ability.create! name: 'Cheer', node: Node.find(2), ability_type: 'Special', number: 5
 Node.create! x: 904, y: 818, attribute_name: 'Defense', value: 1, connections: [node(2)]
 Node.create! x: 904, y: 776, attribute_name: 'Agility', value: 1, connections: [node(3)]
@@ -72,7 +72,7 @@ Node.create! x: 652, y: 716, lock_level: 1, connections: [node(23)]
 Node.create! x: 724, y: 818, attribute_name: 'HP', value: 200, connections: [node(22), node(12)]
 Node.create! x: 704, y: 872, connections: [node(25)]
 Node.create! x: 784, y: 946, connections: [node(26)]
-Node.create! x: 652, y: 946, connections: [node(27)]
+Node.create! x: 652, y: 946, connections: [node(27)], characters: [auron]
 Ability.create! name: 'Power Break', node: Node.find(28), ability_type: 'Skill', number: 15
 Node.create! x: 652, y: 890, lock_level: 2, connections: [node(28)]
 Node.create! x: 652, y: 854, attribute_name: 'Magic Defense', value: 4, connections: [node(29)]
@@ -140,7 +140,7 @@ Node.create! x: 976, y: 856, connections: [node(84)]
 Node.create! x: 956, y: 802, connections: [node(85)]
 Node.create! x: 976, y: 750, connections: [node(86)]
 Node.create! x: 934, y: 696, connections: [node(87), node(62)]
-Node.create! x: 1028, y: 926, connections: [node(83)]
+Node.create! x: 1028, y: 926, connections: [node(83)], characters: [rikku]
 Ability.create! name: 'Use', node: Node.find(89), ability_type: 'Special', number: 3
 Node.create! x: 1142, y: 926, connections: [node(89)]
 Node.create! x: 1122, y: 980, connections: [node(90)]
@@ -863,21 +863,21 @@ Node.create! x: 934, y: 1096, connections: [node(748)]
 Node.create! x: 994, y: 1096, connections: [node(749)]
 Node.create! x: 1016, y: 1118, connections: [node(750)]
 Node.create! x: 1036, y: 1096, connections: [node(751)]
-Node.create! x: 1036, y: 1138, connections: [node(752)]
+Node.create! x: 1036, y: 1138, connections: [node(752)], characters: [yuna]
 Ability.create! name: 'Esuna', node: Node.find(753), ability_type: 'White Magic', number: 9
-Node.create! x: 994, y: 1138, connections: [node(753)]
+Node.create! x: 994, y: 1138, connections: [node(753)], characters: [yuna]
 Ability.create! name: 'Cure', node: Node.find(754), ability_type: 'White Magic', number: 1
 Node.create! x: 1102, y: 1138, attribute_name: 'Strength', value: 3, connections: [node(753)]
 Node.create! x: 858, y: 1128, connections: [node(749)]
 Node.create! x: 782, y: 1096, connections: [node(756)]
-Node.create! x: 720, y: 1096, connections: [node(757)]
+Node.create! x: 720, y: 1096, connections: [node(757)], characters: [lulu]
 Ability.create! name: 'Blizzard', node: Node.find(758), ability_type: 'Black Magic', number: 2
 Node.create! x: 698, y: 1118, connections: [node(758)]
-Node.create! x: 678, y: 1096, connections: [node(759)]
+Node.create! x: 678, y: 1096, connections: [node(759)], characters: [lulu]
 Ability.create! name: 'Fire', node: Node.find(760), ability_type: 'Black Magic', number: 1
-Node.create! x: 678, y: 1138, connections: [node(760)]
+Node.create! x: 678, y: 1138, connections: [node(760)], characters: [lulu]
 Ability.create! name: 'Thunder', node: Node.find(761), ability_type: 'Black Magic', number: 3
-Node.create! x: 720, y: 1138, connections: [node(761)]
+Node.create! x: 720, y: 1138, connections: [node(761)], characters: [lulu]
 Ability.create! name: 'Water', node: Node.find(762), ability_type: 'Black Magic', number: 4
 Node.create! x: 782, y: 1156, connections: [node(757)]
 Node.create! x: 722, y: 1210, attribute_name: 'MP', value: 20, connections: [node(763)]
@@ -900,7 +900,7 @@ Node.create! x: 574, y: 1280, connections: [node(776)]
 Node.create! x: 566, y: 1252, connections: [node(779)]
 Node.create! x: 530, y: 1252, attribute_name: 'MP', value: 20, connections: [node(780)]
 Node.create! x: 550, y: 1304, attribute_name: 'Magic Defense', value: 1, connections: [node(781)]
-Node.create! x: 1028, y: 1020, connections: [node(89)]
+Node.create! x: 1028, y: 1020, connections: [node(89)], characters: [rikku]
 Ability.create! name: 'Steal', node: Node.find(783), ability_type: 'Special', number: 2
 Node.create! x: 966, y: 1020, lock_level: 1, connections: [node(783), node(749)]
 Node.create! x: 930, y: 1020, attribute_name: 'Magic', value: 2, connections: [node(784)]
@@ -909,10 +909,10 @@ Ability.create! name: 'Extract Ability', node: Node.find(786), ability_type: 'Sk
 Node.create! x: 894, y: 1020, connections: [node(785)]
 Ability.create! name: 'Scan', node: Node.find(787), ability_type: 'White Magic', number: 4
 Node.create! x: 886, y: 1048, connections: [node(787)]
-Node.create! x: 858, y: 1018, connections: [node(788)]
+Node.create! x: 858, y: 1018, connections: [node(788)], characters: [kimahri]
 Ability.create! name: 'Lancet', node: Node.find(789), ability_type: 'Special', number: 11
 Node.create! x: 830, y: 990, connections: [node(789)]
-Node.create! x: 806, y: 966, connections: [node(790)]
+Node.create! x: 806, y: 966, connections: [node(790)], characters: [wakka]
 Ability.create! name: 'Dark Attack', node: Node.find(791), ability_type: 'Skill', number: 1
 Node.create! x: 786, y: 1020, connections: [node(791)]
 Node.create! x: 748, y: 1020, connections: [node(792), node(42)]
