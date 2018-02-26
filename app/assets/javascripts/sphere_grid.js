@@ -34,6 +34,8 @@ $(document).ready(function(){
 
   $('#character-tabs').tabs({ heightStyle: 'fill' });
   initializeSphereGrid();
+  recordCharacters();
+  debugger;
   applyCharacterBadgeColors();
 
   $('#info-panel').on('click', '.character-name', initializeSphereGrid);
@@ -60,17 +62,16 @@ $(document).ready(function(){
     _.each(node.connections, function(connection){
       drawConnection(node.x, node.y, connection[0], connection[1]);
     });
-    recordCharacters(node.characters);
     if (node.attribute_name) drawStatNode(circle, node);
     else if (node.ability) drawAbilityNode(circle, node);
     else if (node.lock_level) drawLockNode(circle, node);
     else drawEmptyNode(circle, node);
   }
 
-  function recordCharacters(characters){
-    if (characters !== undefined) {
-      allCharacters = _.uniq(allCharacters.concat(characters));
-    }
+  function recordCharacters(){
+    allCharacters = $('.char-badges li').map(function(){
+      return $(this).data();
+    }).toArray();
   }
 
   function drawConnection(start_x, start_y, end_x, end_y){
