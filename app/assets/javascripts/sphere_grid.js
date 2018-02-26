@@ -1,3 +1,10 @@
+// get all attributes
+// get all characters, including character_attributes
+// get all abilities
+// get all node_locations
+// if user logged in:
+//   get user
+//   get nodes, including activations
 ATTRIBUTE_ABBREVIATIONS = {
   'HP':            'HP',
   'MP':            'MP',
