@@ -9,7 +9,7 @@ class SphereGridController < ApplicationController
   end
 
   def node_data
-    render json: Node.all, include: [:ability, :characters]
+    render json: Node.all, include: %i[ability characters]
   end
 
   def toggle_node
